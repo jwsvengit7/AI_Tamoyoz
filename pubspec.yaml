@@ -78,6 +78,7 @@ dependencies:
 
   # remove later
   dartz: ^0.10.1
+  font_awesome_flutter: ^10.0.0
 
 
   #  route

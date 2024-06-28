@@ -8,7 +8,7 @@ part of 'app_routes.dart';
 
 List<RouteBase> get $appRoutes => [
       $startUpRoute,
-      $accountNumberScreenRoute,
+      $onboardingScreenLoginRoute,
       $landingPageRoute,
     ];
 
@@ -19,18 +19,6 @@ RouteBase get $startUpRoute => GoRouteData.$route(
         GoRouteData.$route(
           path: 'home',
           factory: $OnboardingScreenRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'login',
-          factory: $OnboardingScreenLoginRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'forget-password',
-          factory: $ForgetPasswordRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'signup',
-          factory: $OnboardingScreenSignupRouteExtension._fromState,
         ),
       ],
     );
@@ -70,12 +58,31 @@ extension $OnboardingScreenRouteExtension on OnboardingScreenRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+RouteBase get $onboardingScreenLoginRoute => GoRouteData.$route(
+      path: '/auth',
+      factory: $OnboardingScreenLoginRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'forget-password',
+          factory: $ForgetPasswordRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'signup',
+          factory: $OnboardingScreenSignupRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'home',
+          factory: $HomeRouteExtension._fromState,
+        ),
+      ],
+    );
+
 extension $OnboardingScreenLoginRouteExtension on OnboardingScreenLoginRoute {
   static OnboardingScreenLoginRoute _fromState(GoRouterState state) =>
       const OnboardingScreenLoginRoute();
 
   String get location => GoRouteData.$location(
-        '/login',
+        '/auth',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -93,7 +100,7 @@ extension $ForgetPasswordRouteExtension on ForgetPasswordRoute {
       const ForgetPasswordRoute();
 
   String get location => GoRouteData.$location(
-        '/forget-password',
+        '/auth/forget-password',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -111,7 +118,7 @@ extension $OnboardingScreenSignupRouteExtension on OnboardingScreenSignupRoute {
       const OnboardingScreenSignupRoute();
 
   String get location => GoRouteData.$location(
-        '/signup',
+        '/auth/signup',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -124,17 +131,11 @@ extension $OnboardingScreenSignupRouteExtension on OnboardingScreenSignupRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $accountNumberScreenRoute => GoRouteData.$route(
-      path: '/auth',
-      factory: $AccountNumberScreenRouteExtension._fromState,
-    );
-
-extension $AccountNumberScreenRouteExtension on AccountNumberScreenRoute {
-  static AccountNumberScreenRoute _fromState(GoRouterState state) =>
-      const AccountNumberScreenRoute();
+extension $HomeRouteExtension on HomeRoute {
+  static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
 
   String get location => GoRouteData.$location(
-        '/auth',
+        '/auth/home',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -148,7 +149,7 @@ extension $AccountNumberScreenRouteExtension on AccountNumberScreenRoute {
 }
 
 RouteBase get $landingPageRoute => GoRouteData.$route(
-      path: '/',
+      path: '/landing',
       factory: $LandingPageRouteExtension._fromState,
     );
 
@@ -157,7 +158,7 @@ extension $LandingPageRouteExtension on LandingPageRoute {
       const LandingPageRoute();
 
   String get location => GoRouteData.$location(
-        '/',
+        '/landing',
       );
 
   void go(BuildContext context) => context.go(location);

@@ -1,7 +1,7 @@
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
 import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/core/widget/tamayoz_input_field.dart';
-import 'package:ai_tamayoz/feature/startup/presentation/screens/_forget_password_screen.dart';
+import 'package:ai_tamayoz/feature/auth/presentation/screens/_forget_password_screen.dart';
 import 'package:ai_tamayoz/feature/startup/presentation/widgets/bottomSheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

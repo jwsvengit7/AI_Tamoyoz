@@ -1,7 +1,7 @@
 part of '../../../core/router/app_routes.dart';
 
 @TypedGoRoute<LandingPageRoute>(
-  path: '/',
+  path: '/landing',
 )
 @immutable
 class LandingPageRoute extends GoRouteData {

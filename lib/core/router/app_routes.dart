@@ -1,6 +1,6 @@
-import 'package:ai_tamayoz/feature/startup/presentation/screens/_forget_password_screen.dart';
-import 'package:ai_tamayoz/feature/startup/presentation/screens/_signup_screen.dart';
-import 'package:ai_tamayoz/feature/startup/presentation/screens/onboarding_screen_two.dart';
+import 'package:ai_tamayoz/feature/auth/presentation/screens/_forget_password_screen.dart';
+import 'package:ai_tamayoz/feature/auth/presentation/screens/_signup_screen.dart';
+import 'package:ai_tamayoz/feature/auth/presentation/screens/login_screen_two.dart';
 import 'package:ai_tamayoz/feature/startup/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

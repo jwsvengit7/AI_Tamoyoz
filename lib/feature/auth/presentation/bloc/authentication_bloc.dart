@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:async';
 
@@ -24,7 +25,75 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     on<_ResendOtp>(_handleResendOtp);
     on<_VerifyOtp>(_handleVerifyOtp);
     on<_SignOut>(_handleSignOut);
+    on<_GenerateToken>(_handleGenerateToken);
   }
+
+    FutureOr<void> _handleGenerateToken(
+      _GenerateToken event, Emitter<AuthenticationState> emit) async {
+    emit(const AuthenticationState.settingUpTamayozAuth());
+
+    final generateTokenResult = await _authenticationFacade.generateToken(
+      clientId: event.clientId,
+      password: event.password,
+      accountNumber: event.accountNumber,
+    );
+
+    // i.e if generateTokenResult fails
+    if (generateTokenResult.isLeft()) {
+      final failureMessage = generateTokenResult
+          .getLeft()
+          .map((t) => t.message)
+          .getOrElse(() => "An error occurred");
+      emit(AuthenticationState.TamayozAuthFailed(failureMessage));
+      return;
+    }
+
+    final token =
+        generateTokenResult.getRight().map((t) => "12345").getOrElse(() => "");
+
+    if (token.isEmpty) {
+      final message = generateTokenResult
+          .getLeft()
+          .map((t) => t.message)
+          .getOrElse(() => "An error occurred");
+      emit(AuthenticationState.TamayozAuthFailed(message));
+      return;
+    }
+
+    // save token to local storage
+    final res = await _authenticationFacade.saveToken(token);
+
+    if (res.isLeft()) {
+      final message = res
+          .getLeft()
+          .map((t) => t.message)
+          .getOrElse(() => "An error occurred");
+      emit(AuthenticationState.TamayozAuthFailed(message));
+      return;
+    }
+
+   
+
+ 
+
+  
+
+    emit(
+      AuthenticationState.TamayozAuthSuccessful(
+        data: (
+          selectedCustomerDetails: "selectedCustomerDetails",
+          accountSummary: "accountSummary",
+          accountNumber: event.accountNumber,
+          customerDetails: "customerDetails",
+          token: token,
+          timeOfLogin: DateTime.now().toIso8601String(),
+          // TODO: set this at the point of choosing between OTP or Card.
+          method: "OTP",
+        ),
+      ),
+    );
+  }
+
 
 
       FutureOr<void> _handleGenerateOtp(

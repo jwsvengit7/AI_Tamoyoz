@@ -12,20 +12,99 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/1200px-MINI_logo 1.png
+  AssetGenImage get a1200pxMINILogo1 =>
+      const AssetGenImage('assets/images/1200px-MINI_logo 1.png');
+
+  /// File path: assets/images/Honda-logo 1.png
+  AssetGenImage get hondaLogo1 =>
+      const AssetGenImage('assets/images/Honda-logo 1.png');
+
+  /// File path: assets/images/Jeep-Logo 1.png
+  AssetGenImage get jeepLogo1 =>
+      const AssetGenImage('assets/images/Jeep-Logo 1.png');
+
+  /// File path: assets/images/Mercedes-Logo 1.png
+  AssetGenImage get mercedesLogo1 =>
+      const AssetGenImage('assets/images/Mercedes-Logo 1.png');
+
+  /// File path: assets/images/Tesla_T_symbol 1.png
+  AssetGenImage get teslaTSymbol1 =>
+      const AssetGenImage('assets/images/Tesla_T_symbol 1.png');
+
   /// File path: assets/images/app.png
   AssetGenImage get app => const AssetGenImage('assets/images/app.png');
+
+  /// File path: assets/images/ben-whitaker.png
+  AssetGenImage get benWhitaker =>
+      const AssetGenImage('assets/images/ben-whitaker.png');
+
+  /// File path: assets/images/car1.png
+  AssetGenImage get car1 => const AssetGenImage('assets/images/car1.png');
+
+  /// File path: assets/images/car2.png
+  AssetGenImage get car2 => const AssetGenImage('assets/images/car2.png');
+
+  /// File path: assets/images/car3.png
+  AssetGenImage get car3 => const AssetGenImage('assets/images/car3.png');
+
+  /// File path: assets/images/cars.png
+  AssetGenImage get cars => const AssetGenImage('assets/images/cars.png');
+
+  /// File path: assets/images/check.png
+  AssetGenImage get check => const AssetGenImage('assets/images/check.png');
+
+  /// File path: assets/images/ic_launcher.png
+  AssetGenImage get icLauncher =>
+      const AssetGenImage('assets/images/ic_launcher.png');
 
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/maincar.png
+  AssetGenImage get maincar => const AssetGenImage('assets/images/maincar.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [app, logo];
+  List<AssetGenImage> get values => [
+        a1200pxMINILogo1,
+        hondaLogo1,
+        jeepLogo1,
+        mercedesLogo1,
+        teslaTSymbol1,
+        app,
+        benWhitaker,
+        car1,
+        car2,
+        car3,
+        cars,
+        check,
+        icLauncher,
+        logo,
+        maincar
+      ];
+}
+
+class $AssetsSvgsGen {
+  const $AssetsSvgsGen();
+
+  /// File path: assets/svgs/Group1.svg
+  String get group1 => 'assets/svgs/Group1.svg';
+
+  /// File path: assets/svgs/Group2.svg
+  String get group2 => 'assets/svgs/Group2.svg';
+
+  /// File path: assets/svgs/Group3.svg
+  String get group3 => 'assets/svgs/Group3.svg';
+
+  /// List of all assets
+  List<String> get values => [group1, group2, group3];
 }
 
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsSvgsGen svgs = $AssetsSvgsGen();
 }
 
 class AssetGenImage {

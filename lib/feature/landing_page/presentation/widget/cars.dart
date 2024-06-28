@@ -16,7 +16,7 @@ class CarType {
 class Car {
   final String name;
   final String icon;
-  final int kilometer;
+  final String kilometer;
   final double price;
 
   Car({required this.kilometer,required this.price,required this.name, required this.icon});
@@ -38,10 +38,10 @@ class Car {
     CarType(name: 'Car 1', icon: Assets.images.hondaLogo1.path),
   ];
      final List<Car> cars = [
-    Car(name: 'Car 1', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:1),
-    Car(name: 'Car 1', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:1),
-    Car(name: 'Car 1', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:1),
-    Car(name: 'Car 1', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:1),
-    Car(name: 'Car 1', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:1),
-    Car(name: 'Car 1', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:1),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
   ];

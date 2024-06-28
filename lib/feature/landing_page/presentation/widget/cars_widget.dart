@@ -1,4 +1,6 @@
+import 'package:ai_tamayoz/core/colors/color.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
+import 'package:ai_tamayoz/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class CarWidget extends StatelessWidget{
@@ -7,9 +9,11 @@ class CarWidget extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-     return SizedBox(
+     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 200,
+      height: 250,
+     color: Color.fromARGB(28, 139, 138, 138),
+
       child:Column(
         children:[
           Container(
@@ -22,18 +26,38 @@ class CarWidget extends StatelessWidget{
           ),
         ],
       ),
-      child: Image.asset(
-       car.icon,
-        fit: BoxFit.cover,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Image.asset(
+          width:MediaQuery.of(context).size.width,
+         car.icon,
+          fit: BoxFit.cover,
+        ),
       ),
           ),
-          Text(car.name),
-          const Row(
-           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children:[
-              Text("24534"),
-              Text("3544")
-            ]
+
+          const SizedBox(height: 10,),
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: Row(children:[
+              Text(car.name),
+             const SizedBox(width: 10,),
+              Image.asset(Assets.images.check.path),
+             
+             
+                       ]),
+           ),
+
+        
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:  Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children:[
+               const Text("8,750 KWD  | 2000"),
+                Text(car.kilometer,style:const TextStyle(color:Colors.red,fontWeight: FontWeight.bold))
+              ]
+            ),
           )
         ]
       ),

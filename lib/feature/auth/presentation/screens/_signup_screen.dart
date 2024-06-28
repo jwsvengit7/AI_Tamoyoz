@@ -1,6 +1,6 @@
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
 import 'package:ai_tamayoz/core/router/app_routes.dart';
-import 'package:ai_tamayoz/core/widget/tamayoz_input_field.dart';
+import 'package:ai_tamayoz/core/widget/text_field/search_text_field.dart';
 import 'package:ai_tamayoz/feature/auth/presentation/screens/_forget_password_screen.dart';
 import 'package:ai_tamayoz/feature/startup/presentation/widgets/bottomSheet.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +18,11 @@ class OnboardingScreenSignup extends StatefulWidget {
 }
 
 class OnboardingScreenSignupState extends State<OnboardingScreenSignup> {
+      final email = TextEditingController();
+      final fullName = TextEditingController();
+      final password = TextEditingController();
+      final mobileNumber = TextEditingController();
+
   TextStyle get titleStyle => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 30,
@@ -90,25 +95,25 @@ class OnboardingScreenSignupState extends State<OnboardingScreenSignup> {
                         const SizedBox(
                           height: 10,
                         ),
-                    const TamayozInputWidget(
-                          title: "Full Name",
+                     TamayozSearchTextField(
+                          controller: fullName,
                           hintText: "Full Name"),
                        const SizedBox(
                           height: 10,
                         ),
-                     const TamayozInputWidget(
-                          title: "Email", 
+                      TamayozSearchTextField(
+                          controller: email,
                           hintText: "Email",
                           // passwordField: true,
                           ),
 
-                               const TamayozInputWidget(
-                          title: "Mobile Number", 
+                                TamayozSearchTextField(
+                          controller: mobileNumber,
                           hintText: "Mobile Number",
                           // passwordField: true,
                           ),
-                             const TamayozInputWidget(
-                          title: "Password", 
+                              TamayozSearchTextField(
+                          controller: password,
                           hintText: "Password",
                           // passwordField: true,
                           ),

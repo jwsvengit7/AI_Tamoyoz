@@ -3,6 +3,7 @@ import 'package:ai_tamayoz/core/dialog/failure_dialog.dart';
 import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/core/widget/loading/progress_indicator_scaffold.dart';
 import 'package:ai_tamayoz/core/widget/tamayoz_input_field.dart';
+import 'package:ai_tamayoz/core/widget/text_field/search_text_field.dart';
 import 'package:ai_tamayoz/feature/auth/presentation/bloc/authentication_bloc.dart';
 import 'package:ai_tamayoz/feature/startup/presentation/widgets/bottomSheet.dart';
 import 'package:flutter/material.dart';
@@ -114,17 +115,21 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
                           const SizedBox(
                             height: 10,
                           ),
-                           TamayozInputWidget(
-                              title: "Email/Mobile Number",
+                           TamayozSearchTextField(
+                              
                               hintText: "Email/Mobile Number",
                               controller:email),
                           const SizedBox(
                             height: 10,
                           ),
-                           TamayozInputWidget(
-                            title: "Password",
+                           TamayozSearchTextField(
                             hintText: "Password",
                             controller: password,
+                            onChanged: (data){
+                                setState(() {
+        colorStatus =true;
+      });
+                            },
                             // passwordField: true,
                           ),
                           Container(

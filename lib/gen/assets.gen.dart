@@ -9,6 +9,64 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/a-z.png
+  AssetGenImage get aZ => const AssetGenImage('assets/icons/a-z.png');
+
+  /// File path: assets/icons/book7.png
+  AssetGenImage get book7 => const AssetGenImage('assets/icons/book7.png');
+
+  /// File path: assets/icons/car.png
+  AssetGenImage get car => const AssetGenImage('assets/icons/car.png');
+
+  /// File path: assets/icons/edit.png
+  AssetGenImage get edit => const AssetGenImage('assets/icons/edit.png');
+
+  /// File path: assets/icons/gaurd.png
+  AssetGenImage get gaurd => const AssetGenImage('assets/icons/gaurd.png');
+
+  /// File path: assets/icons/headphone.png
+  AssetGenImage get headphone =>
+      const AssetGenImage('assets/icons/headphone.png');
+
+  /// File path: assets/icons/i.png
+  AssetGenImage get i => const AssetGenImage('assets/icons/i.png');
+
+  /// File path: assets/icons/lock.png
+  AssetGenImage get lock => const AssetGenImage('assets/icons/lock.png');
+
+  /// File path: assets/icons/love.png
+  AssetGenImage get love => const AssetGenImage('assets/icons/love.png');
+
+  /// File path: assets/icons/notify.png
+  AssetGenImage get notify => const AssetGenImage('assets/icons/notify.png');
+
+  /// File path: assets/icons/power.png
+  AssetGenImage get power => const AssetGenImage('assets/icons/power.png');
+
+  /// File path: assets/icons/user-pen (1) 4.png
+  AssetGenImage get userPen14 =>
+      const AssetGenImage('assets/icons/user-pen (1) 4.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        aZ,
+        book7,
+        car,
+        edit,
+        gaurd,
+        headphone,
+        i,
+        lock,
+        love,
+        notify,
+        power,
+        userPen14
+      ];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -103,6 +161,7 @@ class $AssetsSvgsGen {
 class Assets {
   Assets._();
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsSvgsGen svgs = $AssetsSvgsGen();
 }

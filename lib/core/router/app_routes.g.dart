@@ -72,6 +72,10 @@ RouteBase get $carsRoute => GoRouteData.$route(
           path: 'whistlist',
           factory: $WhistlistRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'available',
+          factory: $AvailableScreenRouteExtension._fromState,
+        ),
       ],
     );
 
@@ -116,6 +120,24 @@ extension $WhistlistRouteExtension on WhistlistRoute {
 
   String get location => GoRouteData.$location(
         '/cars/whistlist',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AvailableScreenRouteExtension on AvailableScreenRoute {
+  static AvailableScreenRoute _fromState(GoRouterState state) =>
+      const AvailableScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/available',
       );
 
   void go(BuildContext context) => context.go(location);

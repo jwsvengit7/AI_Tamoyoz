@@ -40,7 +40,7 @@ class WhistListScreenState extends State<WhistListScreen>{
                       ),
                       itemBuilder: (BuildContext context, int index) {
                         final item = cars[index];
-                        return CarWidget(car: item);
+                        return CarWidget(car: item,width:MediaQuery.of(context).size.width);
                       },
                     ),
                   ),

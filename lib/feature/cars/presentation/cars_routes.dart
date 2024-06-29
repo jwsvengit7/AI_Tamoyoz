@@ -9,6 +9,9 @@ part of '../../../core/router/app_routes.dart';
       TypedGoRoute<WhistlistRoute>(
       path: "whistlist"
     ),
+       TypedGoRoute<AvailableScreenRoute>(
+      path: "available"
+    ),
   ]
 )
 @immutable
@@ -36,6 +39,15 @@ class CarsDetailsRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const WhistListScreen();
+      }
+}
+
+ class AvailableScreenRoute extends GoRouteData {
+  const AvailableScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AvailableScreen();
       }
 }
 

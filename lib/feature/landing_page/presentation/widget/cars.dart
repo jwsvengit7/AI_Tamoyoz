@@ -39,9 +39,9 @@ class Car {
   ];
      final List<Car> cars = [
     Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker2.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.maincar.path,price:1.0,kilometer:"8,750 KWD"),
     Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
-    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
-    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
-    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
-    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker2.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.maincar.path,price:1.0,kilometer:"8,750 KWD"),
   ];

@@ -1,4 +1,7 @@
 import 'package:ai_tamayoz/core/appbar/appbar.dart';
+import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
+import 'package:ai_tamayoz/core/colors/color.dart';
+import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars_widget.dart';
 import 'package:flutter/material.dart';
@@ -24,31 +27,50 @@ class CarsScreenState extends State<CarsScreen>{
         body:SingleChildScrollView(
           child:   SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 14.0, bottom: 10, right: 5, left: 5),
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 6,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 1,
-                        crossAxisSpacing: 3,
-                        mainAxisSpacing: 2,
-                        childAspectRatio: 1.5,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 14.0, bottom: 10, right: 5, left: 5),
+                        child: GridView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: 3,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 1,
+                            crossAxisSpacing: 3,
+                            mainAxisSpacing: 2,
+                            childAspectRatio: 1.5,
+                          ),
+                          itemBuilder: (BuildContext context, int index) {
+                            final item = cars[index];
+                            return CarWidget(car: item,status:"cars",width:MediaQuery.of(context).size.width);
+                          },
+                        ),
                       ),
-                      itemBuilder: (BuildContext context, int index) {
-                        final item = cars[index];
-                        return CarWidget(car: item);
-                      },
-                    ),
+                   
+                              const SizedBox(height:10),
+                         
+                          TamayozLoanButtons(
+                                  context: context,
+                                  onTap: () =>_handleSubmission(context),
+                                  text: "Add Car",
+                                  textColor: TamayozLoanColors.white,
+                                  color:  TamayozLoanColors.black1 )
+                              .normal(),
+                   
+                    ],
                   ),
                 ),
              
         )
       ));
   
+  }
+
+  void _handleSubmission(BuildContext context){
+     const AvailableScreenRoute().push(context);
   }
   
 }

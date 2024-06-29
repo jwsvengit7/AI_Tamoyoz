@@ -2,16 +2,19 @@ import 'package:ai_tamayoz/core/colors/color.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
 import 'package:ai_tamayoz/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarWidget extends StatelessWidget{
   final Car car;
-  const CarWidget({super.key,required this.car});
+  final String? status;
+  final double width;
+  const CarWidget({super.key,required this.car,this.status,required this.width});
 
   @override
   Widget build(BuildContext context) {
      return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 250,
+      width: width,
+      // height: 250,
      color: Color.fromARGB(28, 139, 138, 138),
 
       child:Column(
@@ -30,8 +33,10 @@ class CarWidget extends StatelessWidget{
         padding: const EdgeInsets.all(8.0),
         child: Image.asset(
           width:MediaQuery.of(context).size.width,
+      height: status=="available" ? 150.h : 170.h ,
          car.icon,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
+          
         ),
       ),
           ),
@@ -42,7 +47,7 @@ class CarWidget extends StatelessWidget{
              child: Row(children:[
               Text(car.name),
              const SizedBox(width: 10,),
-              Image.asset(Assets.images.check.path),
+             status != "cars" ? Image.asset(Assets.images.check.path): const SizedBox(),
              
              
                        ]),
@@ -50,8 +55,15 @@ class CarWidget extends StatelessWidget{
 
         
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child:  Row(
+            padding: const EdgeInsets.only(left:8.0,right:8.0),
+            child: status=="available" ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+              children:[
+               const Text("8,750 KWD  | 2000"),
+                Text(car.kilometer,style:const TextStyle(color:Colors.red,fontWeight: FontWeight.bold))
+              ]
+            ) : Row(
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:[
                const Text("8,750 KWD  | 2000"),

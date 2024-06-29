@@ -20,8 +20,6 @@ class LandingPageState extends State<LandingPage> {
   int _currentPage = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-
-
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -33,13 +31,12 @@ class LandingPageState extends State<LandingPage> {
       child: Scaffold(
         key: _scaffoldKey,
         drawer: const TamayozDrawer(),
-         appBar: PreferredSize(
-          
-           preferredSize: Size.fromHeight(100.0),
-           child: AppBar(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(100.0),
+          child: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
-            automaticallyImplyLeading :false,
+            automaticallyImplyLeading: false,
             flexibleSpace: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -61,15 +58,15 @@ class LandingPageState extends State<LandingPage> {
                 ),
               ),
             ),
-                   ),
-         ),
+          ),
+        ),
+     
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 const SizedBox(height: 50),
-              
                 Stack(
                   alignment: Alignment.center,
                   children: [
@@ -103,15 +100,12 @@ class LandingPageState extends State<LandingPage> {
                               );
                             },
                             child: Container(
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              margin: const EdgeInsets.symmetric(horizontal: 4.0),
                               width: _currentPage == index ? 12.0 : 8.0,
                               height: _currentPage == index ? 12.0 : 8.0,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: _currentPage == index
-                                    ? Colors.blue
-                                    : Colors.grey,
+                                color: _currentPage == index ? Colors.blue : Colors.grey,
                               ),
                             ),
                           );
@@ -128,22 +122,22 @@ class LandingPageState extends State<LandingPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const SizedBox(
-                          height: 140,
-                          width: 140,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(height: 20),
-                              Text("  Available Cars",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold)),
-                              Text("  Browse our",
-                                  style: TextStyle(fontSize: 15)),
-                              Text("  Available Cars",
-                                  style: TextStyle(fontSize: 15)),
-                            ],
-                          )),
+                        height: 140,
+                        width: 140,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 20),
+                            Text("  Available Cars",
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold)),
+                            Text("  Browse our",
+                                style: TextStyle(fontSize: 15)),
+                            Text("  Available Cars",
+                                style: TextStyle(fontSize: 15)),
+                          ],
+                        ),
+                      ),
                       Container(
                         alignment: Alignment.bottomCenter,
                         height: 100,
@@ -166,10 +160,8 @@ class LandingPageState extends State<LandingPage> {
                             InkWell(
                               onTap: () {},
                               child: Container(
-                                width: 110,
+                                width: MediaQuery.of(context).size.width / 3.8,
                                 height: 150,
-                                // margin:
-                                //     const EdgeInsets.symmetric(horizontal: 10),
                                 decoration: BoxDecoration(
                                   color: TamayozLoanColors.white2,
                                   borderRadius: BorderRadius.circular(15),
@@ -178,8 +170,7 @@ class LandingPageState extends State<LandingPage> {
                                       color: Colors.black.withOpacity(0.2),
                                       spreadRadius: 2,
                                       blurRadius: 3,
-                                      offset: const Offset(
-                                          0, 2), // changes position of shadow
+                                      offset: const Offset(0, 2),
                                     ),
                                   ],
                                 ),
@@ -192,17 +183,11 @@ class LandingPageState extends State<LandingPage> {
                                       height: 60,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
-
                                         color: index == 1
-                                            ? const Color.fromRGBO(
-                                                201, 116, 116, 0.27)
+                                            ? const Color.fromRGBO(201, 116, 116, 0.27)
                                             : index == 2
-                                                ? const Color.fromRGBO(
-                                                    36, 226, 19, 0.17)
-                                                : const Color.fromRGBO(
-                                                    253, 204, 78, 0.2),
-
-                                        //  borderRadius: BorderRadius.circular(30)
+                                                ? const Color.fromRGBO(36, 226, 19, 0.17)
+                                                : const Color.fromRGBO(253, 204, 78, 0.2),
                                       ),
                                       child: Image.asset(
                                         value.icon,
@@ -232,26 +217,25 @@ class LandingPageState extends State<LandingPage> {
                 const Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Popular Brands",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Text("View All", style: redFontText),
-                      ]),
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Popular Brands",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Text("View All", style: redFontText),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 14.0, bottom: 10, right: 5, left: 5),
+                    padding: const EdgeInsets.only(top: 14.0, bottom: 10, right: 5, left: 5),
                     child: GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: 6,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 5,
@@ -264,8 +248,9 @@ class LandingPageState extends State<LandingPage> {
                             child: Container(
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: const Color.fromRGBO(0, 0, 0, 0.11),
-                                  borderRadius: BorderRadius.circular(10)),
+                                color: const Color.fromRGBO(0, 0, 0, 0.11),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                               height: 120,
                               width: MediaQuery.of(context).size.width,
                               child: Image.asset(
@@ -283,15 +268,15 @@ class LandingPageState extends State<LandingPage> {
                 const Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Special Cars",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        Text("View All",
-                            style: redFontText),
-                      ]),
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Special Cars",
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      Text("View All", style: redFontText),
+                    ],
+                  ),
                 ),
                 Stack(
                   alignment: Alignment.center,
@@ -310,12 +295,15 @@ class LandingPageState extends State<LandingPage> {
                             });
                           },
                           itemBuilder: (BuildContext context, int index) {
-                            return CarWidget(car: cars[index]);
+                            return CarWidget(
+                              car: cars[index],
+                              width: MediaQuery.of(context).size.width,
+                            );
                           },
                         ),
                       ),
                     ),
-                ],
+                  ],
                 ),
                 const SizedBox(height: 10),
               ],
@@ -327,6 +315,10 @@ class LandingPageState extends State<LandingPage> {
   }
 
   Widget buildImageSection(int index, BuildContext context) {
+    final List<String> car = [
+      Assets.images.maincar.path,
+      Assets.images.benWhitaker2.path,
+    ];
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 200,
@@ -339,9 +331,12 @@ class LandingPageState extends State<LandingPage> {
           ),
         ],
       ),
-      child: Image.asset(
-        Assets.images.maincar.path,
-        fit: BoxFit.cover,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Image.asset(
+          car[index],
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

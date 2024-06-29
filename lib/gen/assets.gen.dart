@@ -34,6 +34,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/i.png
   AssetGenImage get i => const AssetGenImage('assets/icons/i.png');
 
+  /// File path: assets/icons/list.png
+  AssetGenImage get list => const AssetGenImage('assets/icons/list.png');
+
   /// File path: assets/icons/lock.png
   AssetGenImage get lock => const AssetGenImage('assets/icons/lock.png');
 
@@ -45,6 +48,10 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/power.png
   AssetGenImage get power => const AssetGenImage('assets/icons/power.png');
+
+  /// File path: assets/icons/settings-sliders.png
+  AssetGenImage get settingsSliders =>
+      const AssetGenImage('assets/icons/settings-sliders.png');
 
   /// File path: assets/icons/toggle-on.png
   AssetGenImage get toggleOn =>
@@ -63,10 +70,12 @@ class $AssetsIconsGen {
         gaurd,
         headphone,
         i,
+        list,
         lock,
         love,
         notify,
         power,
+        settingsSliders,
         toggleOn,
         userPen14
       ];

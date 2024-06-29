@@ -97,26 +97,34 @@ class OnboardingScreenSignupState extends State<OnboardingScreenSignup> {
                         ),
                      TamayozSearchTextField(
                           controller: fullName,
+                                                    type: "text",
+
                           hintText: "Full Name"),
                        const SizedBox(
-                          height: 10,
+                          height: 12,
                         ),
                       TamayozSearchTextField(
                           controller: email,
                           hintText: "Email",
-                          // passwordField: true,
+                          type: "email",
                           ),
+                          SizedBox(height:12),
 
                                 TamayozSearchTextField(
                           controller: mobileNumber,
                           hintText: "Mobile Number",
-                          // passwordField: true,
+                          type: "number",
                           ),
+                                                    SizedBox(height:12),
+
                               TamayozSearchTextField(
                           controller: password,
                           hintText: "Password",
-                          // passwordField: true,
+                          type:"password",
+                          
+
                           ),
+                          SizedBox(height:12),
                        
                         TamayozLoanButtons(
                                 context: context,

@@ -5,16 +5,16 @@ import 'package:ai_tamayoz/core/widget/text_field/search_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class AccountScreen extends StatefulWidget{
-  const AccountScreen({super.key});
+class ChangePasswordScreen extends StatefulWidget{
+  const ChangePasswordScreen({super.key});
 @override
-AccountScreenState createState()=> AccountScreenState();
+ChangePasswordScreenState createState()=> ChangePasswordScreenState();
 }
 
-class AccountScreenState extends State<AccountScreen>{
-  final email =TextEditingController();
-  final name =TextEditingController();
-  final phone =TextEditingController();
+class ChangePasswordScreenState extends State<ChangePasswordScreen>{
+  final oldPassword =TextEditingController();
+  final newPassword =TextEditingController();
+  final confirmPassword =TextEditingController();
   @override
   Widget build(BuildContext context){
     return   AnnotatedRegion<SystemUiOverlayStyle>(
@@ -24,7 +24,7 @@ class AccountScreenState extends State<AccountScreen>{
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
-        appBar:const TamayozLoanAppBar(title: "Edit Account",shouldPop: true,),
+        appBar:const TamayozLoanAppBar(title: "Change Password",shouldPop: true,),
         body:SingleChildScrollView(
           child:Padding(
             padding: const EdgeInsets.all(12.0),
@@ -34,31 +34,30 @@ class AccountScreenState extends State<AccountScreen>{
               children: [
                SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child: const Text("Update Your Account\nInformation",style:TextStyle(color:Color.fromRGBO(19, 201, 226, 1),fontSize: 20))),
+                child: const Text("Change Your Account\nPassword",style:TextStyle(color:Color.fromRGBO(19, 201, 226, 1),fontSize: 20))),
                const   SizedBox(
                             height: 20,
                           ),
                            TamayozSearchTextField(
-                              type:"text",
-                              hintText: "Name",
-                              controller:name),
+                             type:"password",
+                              hintText: "Password",
+                              controller:oldPassword),
                           const SizedBox(
                             height: 10,
                           ),
                            TamayozSearchTextField(
-                            hintText: "chiorlujack@gmail.com",
-                            controller: email,
-                            type:"text",readonly: true,
-                            value:"chiorlujack@gmail.com"
+                            hintText: "New Password",
+                            controller: newPassword,
+                            type:"password",
                            
                             // passwordField: true,
                           ),
                           const SizedBox(height:10),
 
                             TamayozSearchTextField(
-                            hintText: "Phone",
-                            controller: phone,
-                            type:"number"
+                            hintText: "Confirm Password",
+                            controller: confirmPassword,
+                            type:"password"
                            
                             // passwordField: true,
                           ),
@@ -67,7 +66,7 @@ class AccountScreenState extends State<AccountScreen>{
                           TamayozLoanButtons(
                                   context: context,
                                   onTap: () =>_handleSubmission(context),
-                                  text: "UPDATE",
+                                  text: "Change",
                                   textColor: TamayozLoanColors.white,
                                   color:  TamayozLoanColors.black1 )
                               .normal(),

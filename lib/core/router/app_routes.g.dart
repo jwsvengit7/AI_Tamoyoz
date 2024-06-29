@@ -8,7 +8,9 @@ part of 'app_routes.dart';
 
 List<RouteBase> get $appRoutes => [
       $startUpRoute,
+      $carsRoute,
       $onboardingScreenLoginRoute,
+      $accountScreenRoute,
       $landingPageRoute,
     ];
 
@@ -46,6 +48,74 @@ extension $OnboardingScreenRouteExtension on OnboardingScreenRoute {
 
   String get location => GoRouteData.$location(
         '/home',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $carsRoute => GoRouteData.$route(
+      path: '/cars',
+      factory: $CarsRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'cars-details',
+          factory: $CarsDetailsRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'whistlist',
+          factory: $WhistlistRouteExtension._fromState,
+        ),
+      ],
+    );
+
+extension $CarsRouteExtension on CarsRoute {
+  static CarsRoute _fromState(GoRouterState state) => const CarsRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $CarsDetailsRouteExtension on CarsDetailsRoute {
+  static CarsDetailsRoute _fromState(GoRouterState state) =>
+      const CarsDetailsRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/cars-details',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $WhistlistRouteExtension on WhistlistRoute {
+  static WhistlistRoute _fromState(GoRouterState state) =>
+      const WhistlistRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/whistlist',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -136,6 +206,53 @@ extension $HomeRouteExtension on HomeRoute {
 
   String get location => GoRouteData.$location(
         '/auth/home',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+RouteBase get $accountScreenRoute => GoRouteData.$route(
+      path: '/account',
+      factory: $AccountScreenRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'change-password',
+          factory: $ChangePasswordScreenRouteExtension._fromState,
+        ),
+      ],
+    );
+
+extension $AccountScreenRouteExtension on AccountScreenRoute {
+  static AccountScreenRoute _fromState(GoRouterState state) =>
+      const AccountScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/account',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ChangePasswordScreenRouteExtension on ChangePasswordScreenRoute {
+  static ChangePasswordScreenRoute _fromState(GoRouterState state) =>
+      const ChangePasswordScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/account/change-password',
       );
 
   void go(BuildContext context) => context.go(location);

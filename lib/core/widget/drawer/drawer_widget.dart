@@ -1,3 +1,4 @@
+import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class TamayozDrawer extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-          const SizedBox(height:50),
+          const SizedBox(height:70),
 
             Padding(
                  padding: const EdgeInsets.only(left:12,right:12),
@@ -28,7 +29,9 @@ class TamayozDrawer extends StatelessWidget {
                    child:  ListTile(
               title: const Text('Edit Account'),
             leading:  Image.asset(Assets.icons.edit.path),
-            onTap: null,
+            onTap: (){
+              const AccountScreenRoute().push(context);
+            },
             ))
             ),
                Padding(
@@ -42,7 +45,9 @@ class TamayozDrawer extends StatelessWidget {
                    child:  ListTile(
               title:const Text('Whistlist'),
             leading:  Image.asset(Assets.icons.love.path),
-            onTap: null,
+              onTap: (){
+              const WhistlistRoute().push(context);
+            },
                ))
             ),
                Padding(
@@ -56,7 +61,9 @@ class TamayozDrawer extends StatelessWidget {
                    child:  ListTile(
               title: const Text('Change Password'),
             leading:  Image.asset(Assets.icons.lock.path),
-            onTap: null,
+            onTap: (){
+              const ChangePasswordScreenRoute().push(context);
+            },
                ))  
             ),
                 Padding(
@@ -70,7 +77,9 @@ class TamayozDrawer extends StatelessWidget {
                    child: ListTile(
               title: const Text('My Cars'),
             leading:  Image.asset(Assets.icons.car.path),
-            onTap: null,
+            onTap: (){
+              const CarsRoute().push(context);
+            },
                )),
             ),
                 Padding(
@@ -96,7 +105,12 @@ class TamayozDrawer extends StatelessWidget {
                          ),
                        ),
                    child:  ListTile(
-              title: const Text('Language'),
+              title: const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children:[
+const Text('Language'),
+const Text('English')
+              ] ),
             leading:  Image.asset(Assets.icons.aZ.path),
             onTap: null,
                )),
@@ -110,7 +124,27 @@ class TamayozDrawer extends StatelessWidget {
                          ),
                        ),
                    child: ListTile(
-              title:const Text('Notifications'),
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children:[
+const Text('Notifications'),
+ SizedBox(
+  width:120,
+  height:50,
+  child:Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+   const InkWell(
+      child: Text("ON"),
+    ),
+    Image.asset(Assets.icons.toggleOn.path),
+    const  InkWell(
+      child: Text("OFF"),
+    )
+
+  ],
+ ))
+              ] ),
             leading:  Image.asset(Assets.icons.notify.path),
             onTap: null,
                )), 
@@ -170,13 +204,22 @@ class TamayozDrawer extends StatelessWidget {
                          ),
                        ),
                    child: ListTile(
-                                 title:  Text('Contact us'),
+                                 title: const Text('Contact us'),
                                leading:  Image.asset(Assets.icons.headphone.path),
                                onTap: null,
                                
                    )
                                ),
                ),
+
+
+              const Padding(
+                 padding:  EdgeInsets.only(left:12,right:12,top:20),
+                 child: ListTile(
+                  title: Text("Version 1.0.0\n2023 Al Tamayoz\nPowered by Code Zone"),
+                 ),
+               )
+
                
              
           

@@ -46,6 +46,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/power.png
   AssetGenImage get power => const AssetGenImage('assets/icons/power.png');
 
+  /// File path: assets/icons/toggle-on.png
+  AssetGenImage get toggleOn =>
+      const AssetGenImage('assets/icons/toggle-on.png');
+
   /// File path: assets/icons/user-pen (1) 4.png
   AssetGenImage get userPen14 =>
       const AssetGenImage('assets/icons/user-pen (1) 4.png');
@@ -63,6 +67,7 @@ class $AssetsIconsGen {
         love,
         notify,
         power,
+        toggleOn,
         userPen14
       ];
 }
@@ -96,6 +101,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/ben-whitaker.png
   AssetGenImage get benWhitaker =>
       const AssetGenImage('assets/images/ben-whitaker.png');
+
+  /// File path: assets/images/ben-whitaker2.png
+  AssetGenImage get benWhitaker2 =>
+      const AssetGenImage('assets/images/ben-whitaker2.png');
 
   /// File path: assets/images/car1.png
   AssetGenImage get car1 => const AssetGenImage('assets/images/car1.png');
@@ -131,6 +140,7 @@ class $AssetsImagesGen {
         teslaTSymbol1,
         app,
         benWhitaker,
+        benWhitaker2,
         car1,
         car2,
         car3,

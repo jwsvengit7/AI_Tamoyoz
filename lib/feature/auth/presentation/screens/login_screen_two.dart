@@ -116,8 +116,9 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
                             height: 10,
                           ),
                            TamayozSearchTextField(
-                              
                               hintText: "Email/Mobile Number",
+                               type: "email",
+
                               controller:email),
                           const SizedBox(
                             height: 10,
@@ -125,6 +126,7 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
                            TamayozSearchTextField(
                             hintText: "Password",
                             controller: password,
+                            type:"password",
                             onChanged: (data){
                                 setState(() {
         colorStatus =true;
@@ -132,6 +134,7 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
                             },
                             // passwordField: true,
                           ),
+                          const SizedBox(height:10),
                           Container(
                               alignment: Alignment.topRight,
                               child: Padding(
@@ -164,11 +167,10 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
                                   width: 10,
                                 ),
                                 InkWell(
-                                   onTap: colorStatus 
-    ? () {
+                                   onTap:  () {
         const OnboardingScreenSignupRoute().push(context);
-      }
-    : null,
+      },
+  
                                   child: const Text(
                                     "Register Here",
                                     style: TextStyle(

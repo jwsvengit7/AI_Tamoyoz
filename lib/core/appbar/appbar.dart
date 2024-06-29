@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ai_tamayoz/core/colors/color.dart';
@@ -78,16 +77,16 @@ class TamayozLoanAppBar extends ConsumerWidget implements PreferredSizeWidget {
           
           IconButton(
           onPressed: onBack ?? callback,
-          icon: const Row(
+          icon:  Row(
             children: [
-              Icon(
+            const  Icon(
                 Icons.chevron_left,
                 size: 35,
               ),
-              SizedBox(height: 5,),
+            const  SizedBox(height: 5,),
               Text(
-                'Back',
-                style: TextStyle(
+                title ?? "",
+                style:const TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 17,
                   color: TamayozLoanColors.black1,
@@ -100,8 +99,9 @@ class TamayozLoanAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
 
           TextButton(
-          onPressed: onBack ?? callback,
-          child: const Text("Skip",  style: TextStyle(
+          onPressed: null,
+          // onPressed: onBack ?? callback,
+          child: const Text("",  style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 17,
                   color: TamayozLoanColors.black1,

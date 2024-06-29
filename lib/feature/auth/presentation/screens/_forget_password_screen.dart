@@ -1,6 +1,7 @@
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
 import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/core/widget/tamayoz_input_field.dart';
+import 'package:ai_tamayoz/core/widget/text_field/search_text_field.dart';
 import 'package:ai_tamayoz/feature/auth/presentation/screens/login_screen_two.dart';
 import 'package:ai_tamayoz/feature/startup/presentation/widgets/bottomSheet.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class ForgetPasswordScreen extends StatefulWidget {
 }
 
 class ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
+    final email = TextEditingController();
+
   TextStyle get titleStyle => const TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 30,
@@ -90,8 +93,10 @@ class ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       const SizedBox(
                           height: 10,
                         ),
-                     const TamayozInputWidget(
-                          title: "Email", 
+                      TamayozSearchTextField(
+                           controller: email,
+                                                     type: "email",
+
                           hintText: "Email",
                           // passwordField: true,
                           ),
@@ -108,8 +113,8 @@ class ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                              children:[
-                              Text("Remenber Your Password?"),
-                              SizedBox(width: 10,),
+                             const Text("Remenber Your Password?"),
+                             const SizedBox(width: 10,),
                              InkWell(
                                 onTap: () {
                                 const  OnboardingScreenLoginRoute().push(context);

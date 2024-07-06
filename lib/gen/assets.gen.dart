@@ -115,6 +115,14 @@ class $AssetsImagesGen {
   AssetGenImage get benWhitaker2 =>
       const AssetGenImage('assets/images/ben-whitaker2.png');
 
+  /// File path: assets/images/brand-car.png
+  AssetGenImage get brandCar =>
+      const AssetGenImage('assets/images/brand-car.png');
+
+  /// File path: assets/images/brand-car2.png
+  AssetGenImage get brandCar2 =>
+      const AssetGenImage('assets/images/brand-car2.png');
+
   /// File path: assets/images/car1.png
   AssetGenImage get car1 => const AssetGenImage('assets/images/car1.png');
 
@@ -150,6 +158,8 @@ class $AssetsImagesGen {
         app,
         benWhitaker,
         benWhitaker2,
+        brandCar,
+        brandCar2,
         car1,
         car2,
         car3,

@@ -76,6 +76,10 @@ RouteBase get $carsRoute => GoRouteData.$route(
           path: 'available',
           factory: $AvailableScreenRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'add-car',
+          factory: $AddCarsScreenRouteExtension._fromState,
+        ),
       ],
     );
 
@@ -138,6 +142,24 @@ extension $AvailableScreenRouteExtension on AvailableScreenRoute {
 
   String get location => GoRouteData.$location(
         '/cars/available',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AddCarsScreenRouteExtension on AddCarsScreenRoute {
+  static AddCarsScreenRoute _fromState(GoRouterState state) =>
+      const AddCarsScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/add-car',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -290,6 +312,20 @@ extension $ChangePasswordScreenRouteExtension on ChangePasswordScreenRoute {
 RouteBase get $landingPageRoute => GoRouteData.$route(
       path: '/landing',
       factory: $LandingPageRouteExtension._fromState,
+      routes: [
+        GoRouteData.$route(
+          path: 'about-us',
+          factory: $AboutUsRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'terms-conditions',
+          factory: $TermsAndConditionRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'privacy',
+          factory: $PrivacyRouteExtension._fromState,
+        ),
+      ],
     );
 
 extension $LandingPageRouteExtension on LandingPageRoute {
@@ -298,6 +334,58 @@ extension $LandingPageRouteExtension on LandingPageRoute {
 
   String get location => GoRouteData.$location(
         '/landing',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AboutUsRouteExtension on AboutUsRoute {
+  static AboutUsRoute _fromState(GoRouterState state) => const AboutUsRoute();
+
+  String get location => GoRouteData.$location(
+        '/landing/about-us',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $TermsAndConditionRouteExtension on TermsAndConditionRoute {
+  static TermsAndConditionRoute _fromState(GoRouterState state) =>
+      const TermsAndConditionRoute();
+
+  String get location => GoRouteData.$location(
+        '/landing/terms-conditions',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $PrivacyRouteExtension on PrivacyRoute {
+  static PrivacyRoute _fromState(GoRouterState state) => const PrivacyRoute();
+
+  String get location => GoRouteData.$location(
+        '/landing/privacy',
       );
 
   void go(BuildContext context) => context.go(location);

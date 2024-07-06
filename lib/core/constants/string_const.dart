@@ -10,12 +10,9 @@ class StringConst {
   static const String devAccessTokenKeyUsername = 'TamayozAPP';
   static const String devAccessTokenKeyPassword = 'AccessTamayoz123';
 
-
   static const String authStateBox = 'authStateBox';
   static const String obscureBalanceBox = 'obscureBalanceBox';
   static const String obscureBalanceBoxKey = 'obscureBalanceBoxKey';
   static const String somethingWentWrongExceptionText = 'Something went wrong';
-
-
   static const String appID = "1234";
 }

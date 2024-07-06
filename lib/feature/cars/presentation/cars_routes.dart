@@ -12,6 +12,9 @@ part of '../../../core/router/app_routes.dart';
        TypedGoRoute<AvailableScreenRoute>(
       path: "available"
     ),
+      TypedGoRoute<AddCarsScreenRoute>(
+      path: "add-car"
+    ),
   ]
 )
 @immutable
@@ -28,10 +31,16 @@ class CarsDetailsRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const CarsDetailsScreen();
+    final routeData = state.extra as CarsDetailsRouteData;
+    return  CarsDetailsScreen(data:routeData.data);
       }
 }
 
+class CarsDetailsRouteData {
+  final CarsDetailsModel data;
+  const CarsDetailsRouteData({required this.data});
+
+}
  
  class WhistlistRoute extends GoRouteData {
   const WhistlistRoute();
@@ -50,5 +59,15 @@ class CarsDetailsRoute extends GoRouteData {
     return const AvailableScreen();
       }
 }
+
+ class AddCarsScreenRoute extends GoRouteData {
+  const AddCarsScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const AddCarsScreen();
+      }
+}
+
 
  

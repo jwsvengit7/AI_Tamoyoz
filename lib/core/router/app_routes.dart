@@ -1,3 +1,4 @@
+import 'package:ai_tamayoz/feature/cars/domain/model/cars_details_model.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/available_cars_screen.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/cars_details_screen.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/cars_screen.dart';

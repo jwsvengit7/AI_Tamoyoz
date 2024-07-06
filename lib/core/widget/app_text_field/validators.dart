@@ -1,5 +1,6 @@
-import 'package:access_kiosk/core/widgets/app_text_field/string_conditions.dart';
-import 'package:access_kiosk/core/widgets/app_text_field/text_field.dart';
+
+import 'package:ai_tamayoz/core/widget/app_text_field/string_conditions.dart';
+import 'package:ai_tamayoz/core/widget/app_text_field/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:string_extensions/string_extensions.dart';
 import 'package:validators2/sanitizers.dart';

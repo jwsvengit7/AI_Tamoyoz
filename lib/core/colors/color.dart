@@ -14,6 +14,7 @@ class TamayozLoanColors {
   static const Color grey5 = Color(0xffABABAB);
   static const Color grey6 = Color(0xff020202);
   static const Color grey7 = Color(0xffCFD9E7);
+  static const Color grey8 = Color(0xffEEEEEE);
 
   static const Color white = Color(0xffFFFFFF);
   static const Color scaffoldBackgroundColor = Color(0xfff4f3f3);

@@ -6,6 +6,7 @@ import 'package:ai_tamayoz/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:string_extensions/string_extensions.dart';
 
 class CarWidget extends StatelessWidget{
   final Car car;
@@ -19,7 +20,7 @@ class CarWidget extends StatelessWidget{
       onTap: (){
         context.push(const CarsDetailsRoute().location,
             extra:
-                CarsDetailsRouteData(data:CarsDetailsModel(name: car.name, price: car.price, description: 'lorem', date: '123', brand: car.name), ));
+                CarsDetailsRouteData(data:CarsDetailsModel(name: car.name, price: car.price, description: 'lorem', date: '123', brand: car.name,image: List.of([car.icon]).toList()), ));
       },
        child: Container(
         
@@ -43,7 +44,7 @@ class CarWidget extends StatelessWidget{
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(
             width:MediaQuery.of(context).size.width,
-        height: status=="available" ? 150.h : 170.h ,
+        height: status=="available" ? 150.h : 200.h ,
            car.icon,
             fit: BoxFit.fill,
             

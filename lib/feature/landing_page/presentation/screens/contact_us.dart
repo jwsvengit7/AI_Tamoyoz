@@ -1,16 +1,15 @@
-import 'package:ai_tamayoz/core/colors/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ai_tamayoz/core/appbar/appbar.dart';
 import 'package:flutter/widgets.dart';
 
-class PrivacyScreen extends StatefulWidget {
-  const PrivacyScreen({super.key});
+class ContactUsScreen extends StatefulWidget {
+  const ContactUsScreen({super.key});
   @override
-  PrivacyScreenScreenState createState() => PrivacyScreenScreenState();
+  ContactUsScreenState createState() => ContactUsScreenState();
 }
 
-class PrivacyScreenScreenState extends State<PrivacyScreen> {
+class ContactUsScreenState extends State<ContactUsScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class PrivacyScreenScreenState extends State<PrivacyScreen> {
                 backgroundColor: Colors.white,
 
             appBar:  TamayozLoanAppBar(
-              title: "Privacy Policy",
+              title: "Contact Us",
               shouldPop: true,
             ),
             body: Padding(

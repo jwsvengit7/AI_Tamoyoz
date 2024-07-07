@@ -7,13 +7,13 @@ import 'package:ai_tamayoz/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class AvailableScreen extends StatefulWidget {
-  const AvailableScreen({super.key});
+class SpecialCarsScreen extends StatefulWidget {
+  const SpecialCarsScreen({super.key});
   @override
-  AvailableScreenState createState() => AvailableScreenState();
+  SpecialCarsScreenState createState() => SpecialCarsScreenState();
 }
 
-class AvailableScreenState extends State<AvailableScreen> {
+class SpecialCarsScreenState extends State<SpecialCarsScreen> {
   bool status = false;
   final PageController _pageController = PageController();
   int _currentPage = 0;
@@ -39,7 +39,7 @@ class AvailableScreenState extends State<AvailableScreen> {
                     backgroundColor: Colors.white,
 
             appBar: const TamayozLoanAppBar(
-              title: "Available Cars",
+              title: "Special Cars",
               shouldPop: true,
             ),
             body: SingleChildScrollView(

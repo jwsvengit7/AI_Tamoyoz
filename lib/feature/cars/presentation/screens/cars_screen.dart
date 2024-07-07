@@ -23,6 +23,8 @@ class CarsScreenState extends State<CarsScreen>{
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
+                  backgroundColor: Colors.white,
+
         appBar:const TamayozLoanAppBar(title: "My Cars",shouldPop: true,),
         body:SingleChildScrollView(
           child:   SizedBox(

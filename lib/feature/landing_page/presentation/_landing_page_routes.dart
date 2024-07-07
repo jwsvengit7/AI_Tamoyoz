@@ -11,6 +11,9 @@ part of '../../../core/router/app_routes.dart';
     ),
       TypedGoRoute<PrivacyRoute>(
   path: 'privacy',
+    ),
+      TypedGoRoute<ContactUsRoute>(
+  path: 'contact-us',
     )
   ]
 )
@@ -47,5 +50,13 @@ class PrivacyRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const PrivacyScreen();
+      }
+}
+
+class ContactUsRoute extends GoRouteData{
+const ContactUsRoute();
+    @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ContactUsScreen();
       }
 }

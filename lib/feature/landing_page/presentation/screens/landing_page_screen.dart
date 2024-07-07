@@ -1,4 +1,5 @@
 import 'package:ai_tamayoz/core/colors/color.dart';
+import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/core/widget/drawer/drawer_widget.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/utils/fonts.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
@@ -29,6 +30,8 @@ class LandingPageState extends State<LandingPage> {
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
+                  backgroundColor: Colors.white,
+
         key: _scaffoldKey,
         drawer: const TamayozDrawer(),
         appBar: PreferredSize(
@@ -115,36 +118,41 @@ class LandingPageState extends State<LandingPage> {
                   ],
                 ),
                 const SizedBox(height: 10),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  color: const Color.fromRGBO(0, 0, 0, 0.11),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const SizedBox(
-                        height: 140,
-                        width: 140,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 20),
-                            Text("  Available Cars",
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.bold)),
-                            Text("  Browse our",
-                                style: TextStyle(fontSize: 15)),
-                            Text("  Available Cars",
-                                style: TextStyle(fontSize: 15)),
-                          ],
+                InkWell(
+                  onTap: (){
+                  const AvailableScreenRoute().push(context);
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    color: const Color.fromRGBO(0, 0, 0, 0.11),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const SizedBox(
+                          height: 140,
+                          width: 140,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 20),
+                              Text("  Available Cars",
+                                  style: TextStyle(
+                                      fontSize: 18, fontWeight: FontWeight.bold)),
+                              Text("  Browse our",
+                                  style: TextStyle(fontSize: 15)),
+                              Text("  Available Cars",
+                                  style: TextStyle(fontSize: 15)),
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        alignment: Alignment.bottomCenter,
-                        height: 100,
-                        width: 220,
-                        child: Image.asset(Assets.images.cars.path),
-                      ),
-                    ],
+                        Container(
+                          alignment: Alignment.bottomCenter,
+                          height: 100,
+                          width: 220,
+                          child: Image.asset(Assets.images.cars.path),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -158,7 +166,19 @@ class LandingPageState extends State<LandingPage> {
                         return Row(
                           children: [
                             InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                if(index==0){
+                                  const AddCarsScreenRoute().push(context);
+                                }
+                                else if(index==1){
+                                const AddCarsScreenRoute().push(context);
+
+                                }
+                                   else{
+                                const AddCarsScreenRoute().push(context);
+
+                                }
+                              },
                               child: Container(
                                 width: MediaQuery.of(context).size.width / 3.8,
                                 height: 150,
@@ -214,16 +234,20 @@ class LandingPageState extends State<LandingPage> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20),
+                 Padding(
+                  padding:const EdgeInsets.only(left: 20, right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                     const Text(
                         "Popular Brands",
                         style: TextStyle(fontSize: 20),
                       ),
-                      Text("View All", style: redFontText),
+                      InkWell(
+                        onTap: () {
+                          const BrandCarScreenRoute().push(context);
+                        },
+                        child: const Text("View All", style: redFontText)),
                     ],
                   ),
                 ),
@@ -265,16 +289,20 @@ class LandingPageState extends State<LandingPage> {
                     ),
                   ),
                 ),
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                     const Text(
                         "Special Cars",
                         style: TextStyle(fontSize: 17),
                       ),
-                      Text("View All", style: redFontText),
+                      InkWell(
+                        onTap: (){
+                          const SpecialCarsScreenRoute().push(context);
+                        },
+                        child: const Text("View All", style: redFontText)),
                     ],
                   ),
                 ),

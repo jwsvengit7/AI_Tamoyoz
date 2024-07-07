@@ -30,12 +30,13 @@ class Car {
 
 
    final List<CarType> carsBrand = [
-    CarType(name: 'Car 1', icon: Assets.images.a1200pxMINILogo1.path),
-    CarType(name: 'Car 1', icon: Assets.images.hondaLogo1.path),
-    CarType(name: 'Car 1', icon: Assets.images.jeepLogo1.path),
-    CarType(name: 'Car 1', icon: Assets.images.mercedesLogo1.path),
-    CarType(name: 'Car 1', icon: Assets.images.teslaTSymbol1.path),
-    CarType(name: 'Car 1', icon: Assets.images.hondaLogo1.path),
+    CarType(name: 'Mini Cooper', icon: Assets.images.a1200pxMINILogo1.path),
+    CarType(name: 'Kia', icon: Assets.images.hondaLogo1.path),
+    CarType(name: 'Jeep', icon: Assets.images.jeepLogo1.path),
+    CarType(name: 'Mercedes', icon: Assets.images.mercedesLogo1.path),
+    CarType(name: 'Tesla', icon: Assets.images.teslaTSymbol1.path),
+    CarType(name: 'Honda', icon: Assets.images.hondaLogo1.path),
+    CarType(name: 'BNW', icon: Assets.images.bmw.path),
   ];
      final List<Car> cars = [
     Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),

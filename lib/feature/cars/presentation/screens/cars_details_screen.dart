@@ -1,5 +1,6 @@
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
 import 'package:ai_tamayoz/core/colors/color.dart';
+import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/feature/cars/domain/model/cars_details_model.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars_widget.dart';
@@ -29,6 +30,8 @@ class CarsDetailsScreenState extends State<CarsDetailsScreen> {
           statusBarColor: Colors.transparent,
         ),
         child: Scaffold(
+                    backgroundColor: Colors.white,
+
             appBar: const TamayozLoanAppBar(
               title: "Car Details",
               shouldPop: true,
@@ -65,7 +68,7 @@ class CarsDetailsScreenState extends State<CarsDetailsScreen> {
                           height: 250,
                           child: PageView.builder(
                             controller: _pageController,
-                            itemCount: cars.length,
+                            itemCount: widget.data.image.length,
                             onPageChanged: (int page) {
                               setState(() {
                                 _currentPage = page;
@@ -73,7 +76,7 @@ class CarsDetailsScreenState extends State<CarsDetailsScreen> {
                             },
                             itemBuilder: (BuildContext context, int index) {
                               return CarDetailsWidget(
-                                car: cars[index],
+                                carImage: widget.data.image[index],
                                 width: MediaQuery.of(context).size.width,
                               );
                             },
@@ -95,7 +98,7 @@ class CarsDetailsScreenState extends State<CarsDetailsScreen> {
 
 width: MediaQuery.of(context).size.width,
 height: 300,
-color: TamayozLoanColors.grey7,
+color: TamayozLoanColors.grey8,
 child:Padding(
   padding: const EdgeInsets.all(8.0),
   child: Column(
@@ -172,15 +175,16 @@ const SizedBox(
   }
 
   void _handleEidt(BuildContext context){
+    const AddCarsScreenRoute().push(context);
 
   }
 }
 
 class CarDetailsWidget extends StatelessWidget {
-  final Car car;
+  final String carImage;
   final double width;
 
-  const CarDetailsWidget({super.key, required this.car, required this.width});
+  const CarDetailsWidget({super.key, required this.carImage, required this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +203,7 @@ class CarDetailsWidget extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20), // Same radius as the container
         child: Image.asset(
-          car.icon,
+          carImage,
           fit: BoxFit.fill,
         ),
       ),

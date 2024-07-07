@@ -24,6 +24,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/edit.png
   AssetGenImage get edit => const AssetGenImage('assets/icons/edit.png');
 
+  /// File path: assets/icons/facebook.png
+  AssetGenImage get facebook =>
+      const AssetGenImage('assets/icons/facebook.png');
+
   /// File path: assets/icons/gaurd.png
   AssetGenImage get gaurd => const AssetGenImage('assets/icons/gaurd.png');
 
@@ -34,6 +38,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/i.png
   AssetGenImage get i => const AssetGenImage('assets/icons/i.png');
 
+  /// File path: assets/icons/instagram.png
+  AssetGenImage get instagram =>
+      const AssetGenImage('assets/icons/instagram.png');
+
   /// File path: assets/icons/list.png
   AssetGenImage get list => const AssetGenImage('assets/icons/list.png');
 
@@ -42,6 +50,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/love.png
   AssetGenImage get love => const AssetGenImage('assets/icons/love.png');
+
+  /// File path: assets/icons/mail.png
+  AssetGenImage get mail => const AssetGenImage('assets/icons/mail.png');
 
   /// File path: assets/icons/notify.png
   AssetGenImage get notify => const AssetGenImage('assets/icons/notify.png');
@@ -53,6 +64,9 @@ class $AssetsIconsGen {
   AssetGenImage get settingsSliders =>
       const AssetGenImage('assets/icons/settings-sliders.png');
 
+  /// File path: assets/icons/tele.png
+  AssetGenImage get tele => const AssetGenImage('assets/icons/tele.png');
+
   /// File path: assets/icons/toggle-on.png
   AssetGenImage get toggleOn =>
       const AssetGenImage('assets/icons/toggle-on.png');
@@ -61,23 +75,32 @@ class $AssetsIconsGen {
   AssetGenImage get userPen14 =>
       const AssetGenImage('assets/icons/user-pen (1) 4.png');
 
+  /// File path: assets/icons/whatsapp.png
+  AssetGenImage get whatsapp =>
+      const AssetGenImage('assets/icons/whatsapp.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         aZ,
         book7,
         car,
         edit,
+        facebook,
         gaurd,
         headphone,
         i,
+        instagram,
         list,
         lock,
         love,
+        mail,
         notify,
         power,
         settingsSliders,
+        tele,
         toggleOn,
-        userPen14
+        userPen14,
+        whatsapp
       ];
 }
 
@@ -87,6 +110,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/1200px-MINI_logo 1.png
   AssetGenImage get a1200pxMINILogo1 =>
       const AssetGenImage('assets/images/1200px-MINI_logo 1.png');
+
+  /// File path: assets/images/BMW.png
+  AssetGenImage get bmw => const AssetGenImage('assets/images/BMW.png');
 
   /// File path: assets/images/Honda-logo 1.png
   AssetGenImage get hondaLogo1 =>
@@ -138,6 +164,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/check.png
   AssetGenImage get check => const AssetGenImage('assets/images/check.png');
 
+  /// File path: assets/images/clock-loading 1.png
+  AssetGenImage get clockLoading1 =>
+      const AssetGenImage('assets/images/clock-loading 1.png');
+
   /// File path: assets/images/ic_launcher.png
   AssetGenImage get icLauncher =>
       const AssetGenImage('assets/images/ic_launcher.png');
@@ -151,6 +181,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         a1200pxMINILogo1,
+        bmw,
         hondaLogo1,
         jeepLogo1,
         mercedesLogo1,
@@ -165,6 +196,7 @@ class $AssetsImagesGen {
         car3,
         cars,
         check,
+        clockLoading1,
         icLauncher,
         logo,
         maincar

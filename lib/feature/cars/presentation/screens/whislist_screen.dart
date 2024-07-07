@@ -20,6 +20,8 @@ class WhistListScreenState extends State<WhistListScreen>{
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
+                  backgroundColor: Colors.white,
+
         appBar:const TamayozLoanAppBar(title: "Whist List",shouldPop: true,),
         body:SingleChildScrollView(
           child:   SizedBox(

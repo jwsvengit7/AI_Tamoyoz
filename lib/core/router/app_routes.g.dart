@@ -80,6 +80,14 @@ RouteBase get $carsRoute => GoRouteData.$route(
           path: 'add-car',
           factory: $AddCarsScreenRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'brands',
+          factory: $BrandCarScreenRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'special-car',
+          factory: $SpecialCarsScreenRouteExtension._fromState,
+        ),
       ],
     );
 
@@ -160,6 +168,42 @@ extension $AddCarsScreenRouteExtension on AddCarsScreenRoute {
 
   String get location => GoRouteData.$location(
         '/cars/add-car',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $BrandCarScreenRouteExtension on BrandCarScreenRoute {
+  static BrandCarScreenRoute _fromState(GoRouterState state) =>
+      const BrandCarScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/brands',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SpecialCarsScreenRouteExtension on SpecialCarsScreenRoute {
+  static SpecialCarsScreenRoute _fromState(GoRouterState state) =>
+      const SpecialCarsScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/special-car',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -325,6 +369,10 @@ RouteBase get $landingPageRoute => GoRouteData.$route(
           path: 'privacy',
           factory: $PrivacyRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'contact-us',
+          factory: $ContactUsRouteExtension._fromState,
+        ),
       ],
     );
 
@@ -386,6 +434,24 @@ extension $PrivacyRouteExtension on PrivacyRoute {
 
   String get location => GoRouteData.$location(
         '/landing/privacy',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ContactUsRouteExtension on ContactUsRoute {
+  static ContactUsRoute _fromState(GoRouterState state) =>
+      const ContactUsRoute();
+
+  String get location => GoRouteData.$location(
+        '/landing/contact-us',
       );
 
   void go(BuildContext context) => context.go(location);

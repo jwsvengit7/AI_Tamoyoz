@@ -93,7 +93,10 @@ class TamayozDrawer extends StatelessWidget {
                    child: ListTile(
               title: const Text('Log Out'),
             leading:  Image.asset(Assets.icons.lock.path),
-            onTap: null,
+            onTap: (){
+                            const ChangePasswordScreenRoute().push(context);
+
+            },
                )),
             ),
                Padding(
@@ -160,7 +163,10 @@ const Text('Notifications'),
                    child: ListTile(
               title: const Text('About AI Tamayoz'),
             leading:  Image.asset(Assets.icons.i.path),
-            onTap: null,
+            onTap: (){
+                            const AboutUsRoute().push(context);
+
+            },
                )),
             ),
                 Padding(
@@ -174,7 +180,10 @@ const Text('Notifications'),
                    child: ListTile(
               title: const Text('Terms & Conditions'),
             leading:  Image.asset(Assets.icons.book7.path),
-            onTap: null,
+            onTap: (){
+                            const TermsAndConditionRoute().push(context);
+
+            },
                ),
         ),
             ),
@@ -189,7 +198,10 @@ const Text('Notifications'),
                    child: ListTile(
               title:const Text('Privacy Policy'),
             leading:  Image.asset(Assets.icons.gaurd.path),
-            onTap: null,
+            onTap: (){
+                            const PrivacyRoute().push(context);
+
+            },
               
             ),
                  ),
@@ -206,7 +218,9 @@ const Text('Notifications'),
                    child: ListTile(
                                  title: const Text('Contact us'),
                                leading:  Image.asset(Assets.icons.headphone.path),
-                               onTap: null,
+                               onTap: (){
+                                   const ContactUsRoute().push(context);
+                               },
                                
                    )
                                ),

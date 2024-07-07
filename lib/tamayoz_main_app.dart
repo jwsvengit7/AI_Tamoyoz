@@ -103,7 +103,7 @@ class _MyAppState extends State<MyApp> {
                   routerDelegate: router.routerDelegate,
                   routeInformationParser: router.routeInformationParser,
                   routeInformationProvider: router.routeInformationProvider,
-                  // home: const CustomEntry(),
+             
                 ),
             
             );

@@ -1,6 +1,7 @@
 import 'package:ai_tamayoz/feature/cars/domain/model/cars_details_model.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/add_cars_screen.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/available_cars_screen.dart';
+import 'package:ai_tamayoz/feature/cars/presentation/screens/brand.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/brand_screens.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/cars_details_screen.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/cars_screen.dart';
@@ -15,6 +16,7 @@ import 'package:ai_tamayoz/feature/landing_page/presentation/screens/about_scree
 import 'package:ai_tamayoz/feature/landing_page/presentation/screens/contact_us.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/screens/privacy_screen.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/screens/terms_condition.dart';
+import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
 import 'package:ai_tamayoz/feature/startup/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

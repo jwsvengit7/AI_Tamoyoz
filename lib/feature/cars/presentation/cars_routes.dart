@@ -18,6 +18,9 @@ part of '../../../core/router/app_routes.dart';
      TypedGoRoute<BrandCarScreenRoute>(
       path: "brands"
     ),
+        TypedGoRoute<BrandCarViewScreenRoute>(
+      path: "brands-cars"
+    ),
       TypedGoRoute<SpecialCarsScreenRoute>(
       path: "special-car"
     ),
@@ -83,6 +86,21 @@ class BrandCarScreenRoute extends GoRouteData{
   }
 }
 
+class BrandCarViewScreenRoute extends GoRouteData{
+  const BrandCarViewScreenRoute();
+  @override
+  Widget build(BuildContext context,GoRouterState state) {
+        final routeData = state.extra as BrandRouteType;
+
+    return  BrandScreen(brand:routeData.brands);
+  }
+}
+
+class BrandRouteType {
+  final CarType brands;
+
+  BrandRouteType({required this.brands});
+}
 
  class SpecialCarsScreenRoute extends GoRouteData{
     const SpecialCarsScreenRoute();

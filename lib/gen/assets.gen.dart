@@ -21,6 +21,13 @@ class $AssetsIconsGen {
   /// File path: assets/icons/car.png
   AssetGenImage get car => const AssetGenImage('assets/icons/car.png');
 
+  /// File path: assets/icons/check.png
+  AssetGenImage get check => const AssetGenImage('assets/icons/check.png');
+
+  /// File path: assets/icons/checkgood.png
+  AssetGenImage get checkgood =>
+      const AssetGenImage('assets/icons/checkgood.png');
+
   /// File path: assets/icons/edit.png
   AssetGenImage get edit => const AssetGenImage('assets/icons/edit.png');
 
@@ -37,6 +44,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/i.png
   AssetGenImage get i => const AssetGenImage('assets/icons/i.png');
+
+  /// File path: assets/icons/image 1.png
+  AssetGenImage get image1 => const AssetGenImage('assets/icons/image 1.png');
 
   /// File path: assets/icons/instagram.png
   AssetGenImage get instagram =>
@@ -84,11 +94,14 @@ class $AssetsIconsGen {
         aZ,
         book7,
         car,
+        check,
+        checkgood,
         edit,
         facebook,
         gaurd,
         headphone,
         i,
+        image1,
         instagram,
         list,
         lock,
@@ -172,6 +185,9 @@ class $AssetsImagesGen {
   AssetGenImage get icLauncher =>
       const AssetGenImage('assets/images/ic_launcher.png');
 
+  /// File path: assets/images/image 1.png
+  AssetGenImage get image1 => const AssetGenImage('assets/images/image 1.png');
+
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
@@ -198,6 +214,7 @@ class $AssetsImagesGen {
         check,
         clockLoading1,
         icLauncher,
+        image1,
         logo,
         maincar
       ];

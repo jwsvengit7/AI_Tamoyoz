@@ -45,11 +45,14 @@ class CarBrandScreenState extends State<CarBrandScreen> {
                      ),
                    const SizedBox(height: 10),
                   
-                      Column(
+                      Padding(
+                        padding:EdgeInsets.all(8.0),
+                        
+                      child:Column(
                     children: carsBrand.reversed.map((brand) {
                       return BrandWidget(brands: brand);
                     }).toList(),
-                          ),
+                          ),),
                         
                   
                                  

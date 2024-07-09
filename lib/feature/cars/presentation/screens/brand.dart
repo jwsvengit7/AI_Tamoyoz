@@ -4,6 +4,8 @@ import 'package:ai_tamayoz/core/widget/text_field/search_input.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars_widget.dart';
 import 'package:ai_tamayoz/gen/assets.gen.dart';
+import 'package:ai_tamayoz/feature/cars/presentation/screens/widget/car_view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -76,39 +78,7 @@ class BrandScreenState extends State<BrandScreen> {
                                   i < endIndex && i < cars.length;
                                   i++) {
                                 items.add(
-                                  Expanded(
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          color: i == 0
-                                              ? const Color.fromARGB(
-                                                  255, 65, 64, 64)
-                                              : TamayozLoanColors.grey8,
-                                        ),
-                                        width: 30,
-                                        height: 70,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Image.asset(
-                                                Assets.images.brandCar2.path),
-                                            Text("Sedan",
-                                                style: TextStyle(
-                                                    color: i == 0
-                                                        ? TamayozLoanColors
-                                                            .white
-                                                        : TamayozLoanColors
-                                                            .black1))
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                );
+                                     CarViewProduct(i:i) );
                               }
                               while (items.length < 3) {
                                 items.add(Expanded(child: Container()));

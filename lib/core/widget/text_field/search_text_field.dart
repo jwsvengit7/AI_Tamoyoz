@@ -73,15 +73,15 @@ class _TamayozSearchTextFieldState extends State<TamayozSearchTextField> {
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
         border: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color.fromARGB(255, 206, 204, 204), width: 2.0),
+          borderSide: const BorderSide(color: TamayozLoanColors.grey8, width: 2.0),
           borderRadius: BorderRadius.circular(10.0),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color.fromARGB(255, 206, 204, 204), width: 2.0),
+          borderSide: const BorderSide(color: TamayozLoanColors.grey8, width: 2.0),
           borderRadius: BorderRadius.circular(10.0),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Color.fromARGB(255, 206, 204, 204), width: 2.0),
+          borderSide: const BorderSide(color: TamayozLoanColors.grey8, width: 2.0),
           borderRadius: BorderRadius.circular(10.0),
         ),
         suffixIcon: widget.type == 'password'

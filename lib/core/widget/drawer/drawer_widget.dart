@@ -3,7 +3,9 @@ import 'package:ai_tamayoz/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class TamayozDrawer extends StatelessWidget {
-  const TamayozDrawer({super.key});
+   TamayozDrawer({super.key});
+
+  final text =TextStyle(fontSize:13);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class TamayozDrawer extends StatelessWidget {
                          ),
                        ),
                    child:  ListTile(
-              title: const Text('Edit Account'),
+              title:  Text('Edit Account',style:text),
             leading:  Image.asset(Assets.icons.edit.path),
             onTap: (){
               const AccountScreenRoute().push(context);
@@ -43,7 +45,7 @@ class TamayozDrawer extends StatelessWidget {
                          ),
                        ),
                    child:  ListTile(
-              title:const Text('Whistlist'),
+              title: Text('Whistlist',style:text),
             leading:  Image.asset(Assets.icons.love.path),
               onTap: (){
               const WhistlistRoute().push(context);
@@ -59,7 +61,7 @@ class TamayozDrawer extends StatelessWidget {
                          ),
                        ),
                    child:  ListTile(
-              title: const Text('Change Password'),
+              title:  Text('Change Password',style:text),
             leading:  Image.asset(Assets.icons.lock.path),
             onTap: (){
               const ChangePasswordScreenRoute().push(context);
@@ -75,7 +77,7 @@ class TamayozDrawer extends StatelessWidget {
                          ),
                        ),
                    child: ListTile(
-              title: const Text('My Cars'),
+              title:  Text('My Cars',style:text),
             leading:  Image.asset(Assets.icons.car.path),
             onTap: (){
               const CarsRoute().push(context);
@@ -91,7 +93,7 @@ class TamayozDrawer extends StatelessWidget {
                          ),
                        ),
                    child: ListTile(
-              title: const Text('Log Out'),
+              title:  Text('Log Out',style:text),
             leading:  Image.asset(Assets.icons.lock.path),
             onTap: (){
                             const ChangePasswordScreenRoute().push(context);
@@ -108,11 +110,11 @@ class TamayozDrawer extends StatelessWidget {
                          ),
                        ),
                    child:  ListTile(
-              title: const Row(
+              title:  Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
-const Text('Language'),
-const Text('English')
+ Text('Language',style:text),
+ Text('English',style:text)
               ] ),
             leading:  Image.asset(Assets.icons.aZ.path),
             onTap: null,
@@ -130,19 +132,19 @@ const Text('English')
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
-const Text('Notifications'),
+ Text('Notifications',style:text),
  SizedBox(
   width:120,
   height:50,
   child:Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
   children: [
-   const InkWell(
-      child: Text("ON"),
+    InkWell(
+      child: Text("ON",style:text),
     ),
     Image.asset(Assets.icons.toggleOn.path),
-    const  InkWell(
-      child: Text("OFF"),
+      InkWell(
+      child: Text("OFF",style:text),
     )
 
   ],
@@ -161,7 +163,7 @@ const Text('Notifications'),
                          ),
                        ),
                    child: ListTile(
-              title: const Text('About AI Tamayoz'),
+              title:  Text('About AI Tamayoz',style:text),
             leading:  Image.asset(Assets.icons.i.path),
             onTap: (){
                             const AboutUsRoute().push(context);
@@ -178,7 +180,7 @@ const Text('Notifications'),
                          ),
                        ),
                    child: ListTile(
-              title: const Text('Terms & Conditions'),
+              title:  Text('Terms & Conditions',style:text),
             leading:  Image.asset(Assets.icons.book7.path),
             onTap: (){
                             const TermsAndConditionRoute().push(context);
@@ -196,7 +198,7 @@ const Text('Notifications'),
                          ),
                        ),
                    child: ListTile(
-              title:const Text('Privacy Policy'),
+              title: Text('Privacy Policy',style:text),
             leading:  Image.asset(Assets.icons.gaurd.path),
             onTap: (){
                             const PrivacyRoute().push(context);
@@ -216,7 +218,7 @@ const Text('Notifications'),
                          ),
                        ),
                    child: ListTile(
-                                 title: const Text('Contact us'),
+                                 title:  Text('Contact us',style:text),
                                leading:  Image.asset(Assets.icons.headphone.path),
                                onTap: (){
                                    const ContactUsRoute().push(context);
@@ -227,10 +229,10 @@ const Text('Notifications'),
                ),
 
 
-              const Padding(
+               Padding(
                  padding:  EdgeInsets.only(left:12,right:12,top:20),
                  child: ListTile(
-                  title: Text("Version 1.0.0\n2023 Al Tamayoz\nPowered by Code Zone"),
+                  title: Text("Version 1.0.0\n2023 Al Tamayoz\nPowered by Code Zone",style:text),
                  ),
                )
 
@@ -242,4 +244,18 @@ const Text('Notifications'),
       ),
     );
   }
+}
+
+
+class SidebarIcon{
+  final String title;
+  final Icon icon;
+  final String route;
+  final String notify;
+  final String langauge;
+    final VoidCallback? onTap;
+
+  SidebarIcon({this.onTap,required this.notify,required this.langauge,required this.title, required this.icon, required this.route});
+
+  
 }

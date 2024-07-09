@@ -33,7 +33,7 @@ class LandingPageState extends State<LandingPage> {
                   backgroundColor: Colors.white,
 
         key: _scaffoldKey,
-        drawer: const TamayozDrawer(),
+        drawer:  TamayozDrawer(),
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(100.0),
           child: AppBar(

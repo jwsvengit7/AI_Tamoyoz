@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class TamayozDrawer extends StatelessWidget {
    TamayozDrawer({super.key});
 
-  final text =TextStyle(fontSize:13);
+  final text =TextStyle(fontSize:14);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class TamayozDrawer extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-          const SizedBox(height:70),
+          const SizedBox(height:50),
 
             Padding(
                  padding: const EdgeInsets.only(left:12,right:12),
@@ -30,7 +30,7 @@ class TamayozDrawer extends StatelessWidget {
                        ),
                    child:  ListTile(
               title:  Text('Edit Account',style:text),
-            leading:  Image.asset(Assets.icons.edit.path),
+            leading:  Image.asset(Assets.icons.edit.path,width:17,height:17),
             onTap: (){
               const AccountScreenRoute().push(context);
             },
@@ -46,7 +46,7 @@ class TamayozDrawer extends StatelessWidget {
                        ),
                    child:  ListTile(
               title: Text('Whistlist',style:text),
-            leading:  Image.asset(Assets.icons.love.path),
+            leading:  Image.asset(Assets.icons.love.path,width:17,height:17),
               onTap: (){
               const WhistlistRoute().push(context);
             },
@@ -62,7 +62,7 @@ class TamayozDrawer extends StatelessWidget {
                        ),
                    child:  ListTile(
               title:  Text('Change Password',style:text),
-            leading:  Image.asset(Assets.icons.lock.path),
+            leading:  Image.asset(Assets.icons.lock.path,width:17,height:17),
             onTap: (){
               const ChangePasswordScreenRoute().push(context);
             },
@@ -78,7 +78,7 @@ class TamayozDrawer extends StatelessWidget {
                        ),
                    child: ListTile(
               title:  Text('My Cars',style:text),
-            leading:  Image.asset(Assets.icons.car.path),
+            leading:  Image.asset(Assets.icons.car.path,width:17,height:17),
             onTap: (){
               const CarsRoute().push(context);
             },
@@ -94,7 +94,7 @@ class TamayozDrawer extends StatelessWidget {
                        ),
                    child: ListTile(
               title:  Text('Log Out',style:text),
-            leading:  Image.asset(Assets.icons.lock.path),
+            leading:  Image.asset(Assets.icons.lock.path,width:17,height:17),
             onTap: (){
                             const ChangePasswordScreenRoute().push(context);
 
@@ -116,7 +116,7 @@ class TamayozDrawer extends StatelessWidget {
  Text('Language',style:text),
  Text('English',style:text)
               ] ),
-            leading:  Image.asset(Assets.icons.aZ.path),
+            leading:  Image.asset(Assets.icons.aZ.path,width:17,height:17),
             onTap: null,
                )),
             ),
@@ -150,7 +150,7 @@ class TamayozDrawer extends StatelessWidget {
   ],
  ))
               ] ),
-            leading:  Image.asset(Assets.icons.notify.path),
+            leading:  Image.asset(Assets.icons.notify.path,width:17,height:17),
             onTap: null,
                )), 
             ),
@@ -164,7 +164,7 @@ class TamayozDrawer extends StatelessWidget {
                        ),
                    child: ListTile(
               title:  Text('About AI Tamayoz',style:text),
-            leading:  Image.asset(Assets.icons.i.path),
+            leading:  Image.asset(Assets.icons.i.path,width:17,height:17),
             onTap: (){
                             const AboutUsRoute().push(context);
 
@@ -181,7 +181,7 @@ class TamayozDrawer extends StatelessWidget {
                        ),
                    child: ListTile(
               title:  Text('Terms & Conditions',style:text),
-            leading:  Image.asset(Assets.icons.book7.path),
+            leading:  Image.asset(Assets.icons.book7.path,width:17,height:17),
             onTap: (){
                             const TermsAndConditionRoute().push(context);
 
@@ -199,7 +199,7 @@ class TamayozDrawer extends StatelessWidget {
                        ),
                    child: ListTile(
               title: Text('Privacy Policy',style:text),
-            leading:  Image.asset(Assets.icons.gaurd.path),
+            leading:  Image.asset(Assets.icons.gaurd.path,width:17,height:17),
             onTap: (){
                             const PrivacyRoute().push(context);
 
@@ -219,7 +219,7 @@ class TamayozDrawer extends StatelessWidget {
                        ),
                    child: ListTile(
                                  title:  Text('Contact us',style:text),
-                               leading:  Image.asset(Assets.icons.headphone.path),
+                               leading:  Image.asset(Assets.icons.headphone.path,width:17,height:17),
                                onTap: (){
                                    const ContactUsRoute().push(context);
                                },

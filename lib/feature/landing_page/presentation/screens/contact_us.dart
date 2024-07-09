@@ -133,11 +133,11 @@ class ContactUsScreenState extends State<ContactUsScreen> {
     ),
   ),
 ),
-SizedBox(height: 10),
+const SizedBox(height: 10),
 Container(
   alignment: Alignment.centerRight,
   width: MediaQuery.of(context).size.width,
-  child: Text(
+  child: const Text(
     "Max 250 Characters",
     style: TextStyle(color: Colors.lightBlue),
     textAlign: TextAlign.right,

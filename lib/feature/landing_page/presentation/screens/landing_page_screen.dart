@@ -48,7 +48,7 @@ class LandingPageState extends State<LandingPage> {
                   children: [
                     const Text(
                       "Find Your\nNew Vehicle",
-                      style: TextStyle(fontSize: 25, color: Colors.black),
+                      style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     IconButton(
                       onPressed: () {

@@ -38,33 +38,30 @@ class TamayozLoanButtons {
   }
 
   Widget normal() {
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: InkWell(
-        onTap: onTap,
-        child: SizedBox(
-          width: double.infinity,
-          height: 60,
-          child: Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-                color: color, borderRadius: BorderRadius.circular(borderRadius)),
-            child: buttonContent ??
-                Text(
-                  text,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: explicitTextStyle ??
-                      TextStyle(
-                        color: textColor,
-                        fontSize: textFontSize,
-                        letterSpacing: letterSpacing,
-                        fontWeight: fontWeight,
-                        height: 1,
-                      ),
-                  textAlign: TextAlign.center,
-                ),
-          ),
+    return InkWell(
+      onTap: onTap,
+      child: SizedBox(
+        width: double.infinity,
+        height: 60,
+        child: Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              color: color, borderRadius: BorderRadius.circular(borderRadius)),
+          child: buttonContent ??
+              Text(
+                text,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: explicitTextStyle ??
+                    TextStyle(
+                      color: textColor,
+                      fontSize: textFontSize,
+                      letterSpacing: letterSpacing,
+                      fontWeight: fontWeight,
+                      height: 1,
+                    ),
+                textAlign: TextAlign.center,
+              ),
         ),
       ),
     );
@@ -89,8 +86,8 @@ class TamayozLoanButtons {
             padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(
               padding ??
                   EdgeInsets.symmetric(
-                    horizontal: 45.w,
-                    vertical: 32.h,
+                    horizontal: 40.w,
+                    vertical: 30.h,
                   ),
             ),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(

@@ -1,3 +1,4 @@
+import 'package:ai_tamayoz/core/appbar/font.dart';
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
 import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/core/widget/text_field/search_text_field.dart';
@@ -22,19 +23,9 @@ class OnboardingScreenSignupState extends State<OnboardingScreenSignup> {
       final fullName = TextEditingController();
       final password = TextEditingController();
       final mobileNumber = TextEditingController();
+      final font = FontFamilys();
 
-  TextStyle get titleStyle => const TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 30,
-        height: 1,
-        color: TamayozLoanColors.white,
-      );
-  TextStyle get titleStyle2 => const TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
-        height: 1,
-        color: TamayozLoanColors.white,
-      );
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +42,6 @@ class OnboardingScreenSignupState extends State<OnboardingScreenSignup> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Expanded(
-                flex: 2,
                 child: Align(
                   alignment: Alignment.center,
                   child: Image.asset(
@@ -72,16 +62,16 @@ class OnboardingScreenSignupState extends State<OnboardingScreenSignup> {
                       children: [
                         Text(
                           "Join Us!",
-                          style: titleStyle,
+                          style: font.titleStyle,
                         ),
-                        Text("\nCreate an Account", style: titleStyle2)
+                        Text("\nCreate an Account", style: font.titleStyle2)
                       ],
                     )),
               ),
               BottomSheets(
-                height: 550.0,
+                height: 600.0.h,
                 child: Padding(
-                  padding: const EdgeInsets.only(top:15.0,bottom: 15,left:25,right:25),
+                  padding: const EdgeInsets.only(top:15.0,bottom: 15,left:15,right:15),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -126,14 +116,17 @@ class OnboardingScreenSignupState extends State<OnboardingScreenSignup> {
                           ),
                           SizedBox(height:12),
                        
-                        TamayozLoanButtons(
-                                context: context,
-                                onTap: () =>
-                                    Navigator.of(context).push(_createRoute()),
-                                text: "Register",
-                                textColor: TamayozLoanColors.white,
-                                color: TamayozLoanColors.black1)
-                            .normal(),
+                        Padding(
+                          padding: const EdgeInsets.only(top:12.0,bottom: 12.0),
+                          child: TamayozLoanButtons(
+                                  context: context,
+                                  onTap: () =>
+                                      Navigator.of(context).push(_createRoute()),
+                                  text: "Register",
+                                  textColor: TamayozLoanColors.white,
+                                  color: TamayozLoanColors.black1)
+                              .normal(),
+                        ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                              children:[

@@ -64,6 +64,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/mail.png
   AssetGenImage get mail => const AssetGenImage('assets/icons/mail.png');
 
+  /// File path: assets/icons/menu-2.png
+  AssetGenImage get menu2 => const AssetGenImage('assets/icons/menu-2.png');
+
   /// File path: assets/icons/notify.png
   AssetGenImage get notify => const AssetGenImage('assets/icons/notify.png');
 
@@ -107,6 +110,7 @@ class $AssetsIconsGen {
         lock,
         love,
         mail,
+        menu2,
         notify,
         power,
         settingsSliders,

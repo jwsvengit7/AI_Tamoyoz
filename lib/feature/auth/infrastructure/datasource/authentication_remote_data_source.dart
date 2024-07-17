@@ -1,6 +1,7 @@
 
 import 'package:ai_tamayoz/core/network/domain/api_caller.dart';
 import 'package:ai_tamayoz/core/Tamayoz_core_api/Tamayoz_core_api.dart';
+import 'package:flutter/material.dart';
 
 import '../models/generate_token_response_model.dart';
 
@@ -39,19 +40,20 @@ class AuthenticationRemoteDataSourceImpl
     required String password,
     required String accountNumber,
   }) async {
-    final url = TamayozCoreApi.getURL("GenerateToken");
+    final url = TamayozCoreApi.getURL("/topadmin/api/Login.php");
 
     final response = await _apiCaller.post(
       url: url,
       body: {
-        "clientId": clientId,
+        "email": clientId,
         "password": password,
       },
     );
 
     if (response.isSuccessful(
-      doSuccessCheck: (data) => data["isError"] == false,
+      doSuccessCheck: (data) => data["status"] == 200,
     )) {
+      debugPrint("::: response ${response.data['result']}");
       return GenerateTokenResponseModel.fromJson(response.data);
     }
 

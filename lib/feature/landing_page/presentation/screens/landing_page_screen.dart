@@ -5,6 +5,7 @@ import 'package:ai_tamayoz/feature/landing_page/presentation/utils/fonts.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars_widget.dart';
 import 'package:ai_tamayoz/gen/assets.gen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -34,48 +35,63 @@ class LandingPageState extends State<LandingPage> {
 
         key: _scaffoldKey,
         drawer:  TamayozDrawer(),
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100.0),
-          child: AppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            automaticallyImplyLeading: false,
-            flexibleSpace: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      "Find Your\nNew Vehicle",
-                      style: TextStyle(fontSize: 22, color: Colors.black),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        _scaffoldKey.currentState?.openDrawer();
-                      },
-                      icon: const FaIcon(FontAwesomeIcons.bars, color: Colors.black),
-                      iconSize: 25,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
+  
+      
+          
+        
      
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
             child: Column(
+
               children: [
-                const SizedBox(height: 50),
+                 SizedBox(
+                  width:MediaQuery.of(context).size.width,
+               child: Padding(
+              padding: const EdgeInsets.only(top:40.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                 const Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                          width:200,
+                        child:  Text(
+                          "Find Your",
+                          style: TextStyle(fontSize: 22, color: Colors.black),
+                        ),
+                      ),
+                         SizedBox(
+                            width:200,
+                           child:  Text(
+                                                     "New Vehicle",
+                                                     style: TextStyle(fontSize: 22, color: Colors.black,fontWeight: FontWeight.bold),
+                                                   ),
+                         ),
+                    ],
+                  ),
+                  InkWell(
+                      onTap: () {
+                        _scaffoldKey.currentState?.openDrawer();
+                      },
+                    child: Image.asset(
+                    Assets.icons.menu2.path
+                   
+                    ),
+                  ),
+                ],
+              ),
+            ),
+       ),
+                const SizedBox(height: 20),
                 Stack(
                   alignment: Alignment.center,
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
-                      height: 200,
+                      height: 170,
                       child: PageView.builder(
                         controller: _pageController,
                         itemCount: 2,
@@ -89,9 +105,13 @@ class LandingPageState extends State<LandingPage> {
                         },
                       ),
                     ),
-                    Positioned(
-                      bottom: 10,
-                      child: Row(
+               ],
+                ),
+                const SizedBox(height:20),
+                      Container(
+                        alignment: Alignment.center,
+                        width:100,
+                        child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(2, (index) {
                           return GestureDetector(
@@ -104,27 +124,30 @@ class LandingPageState extends State<LandingPage> {
                             },
                             child: Container(
                               margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                              width: _currentPage == index ? 12.0 : 8.0,
-                              height: _currentPage == index ? 12.0 : 8.0,
+                              width: _currentPage == index ? 25.0 : 20.0,
+                              height: _currentPage == index ? 5.0 : 5.0,
                               decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: _currentPage == index ? Colors.blue : Colors.grey,
+                                borderRadius: BorderRadius.circular(10),
+                                color: _currentPage == index ? TamayozLoanColors.grey3 : TamayozLoanColors.grey8,
                               ),
                             ),
                           );
                         }),
+                                            ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
+                 
+                const SizedBox(height: 20),
                 InkWell(
                   onTap: (){
                   const AvailableScreenRoute().push(context);
                   },
                   child: Container(
                     width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
                     color: const Color.fromRGBO(0, 0, 0, 0.11),
+
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -157,7 +180,8 @@ class LandingPageState extends State<LandingPage> {
                 ),
                 const SizedBox(height: 10),
                 Container(
-                  margin: const EdgeInsets.all(10),
+                  width:MediaQuery.of(context).size.width,
+                
                   child: SingleChildScrollView(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -179,51 +203,54 @@ class LandingPageState extends State<LandingPage> {
 
                                 }
                               },
-                              child: Container(
-                                width: MediaQuery.of(context).size.width / 3.8,
-                                height: 150,
-                                decoration: BoxDecoration(
-                                  color: TamayozLoanColors.white2,
-                                  borderRadius: BorderRadius.circular(15),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
-                                      spreadRadius: 2,
-                                      blurRadius: 3,
-                                      offset: const Offset(0, 2),
-                                    ),
-                                  ],
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      width: 60,
-                                      height: 60,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: index == 1
-                                            ? const Color.fromRGBO(201, 116, 116, 0.27)
-                                            : index == 2
-                                                ? const Color.fromRGBO(36, 226, 19, 0.17)
-                                                : const Color.fromRGBO(253, 204, 78, 0.2),
+                              child: Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width / 3.7,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    color: TamayozLoanColors.white2,
+                                    borderRadius: BorderRadius.circular(15),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.1),
+                                        spreadRadius: 2,
+                                        blurRadius: 3,
+                                        offset: const Offset(0, 2),
                                       ),
-                                      child: Image.asset(
-                                        value.icon,
-                                        width: 30,
-                                        height: 30,
+                                    ],
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 60,
+                                        height: 60,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: index == 1
+                                              ? const Color.fromRGBO(201, 116, 116, 0.27)
+                                              : index == 2
+                                                  ? const Color.fromRGBO(36, 226, 19, 0.17)
+                                                  : const Color.fromRGBO(253, 204, 78, 0.2),
+                                        ),
+                                        child: Image.asset(
+                                          value.icon,
+                                          width: 30,
+                                          height: 30,
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      value.name,
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        color: TamayozLoanColors.black2,
+                                      const SizedBox(height: 10),
+                                      Text(
+                                        value.name,
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          color: TamayozLoanColors.black2,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -234,35 +261,32 @@ class LandingPageState extends State<LandingPage> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                 Padding(
-                  padding:const EdgeInsets.only(left: 20, right: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                     const Text(
-                        "Popular Brands",
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          const BrandCarScreenRoute().push(context);
-                        },
-                        child: const Text("View All", style: redFontText)),
-                    ],
-                  ),
-                ),
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                   children: [
+                    const Text(
+                       "Popular Brands",
+                       style: TextStyle(fontSize: 20),
+                     ),
+                     InkWell(
+                       onTap: () {
+                         const BrandCarScreenRoute().push(context);
+                       },
+                       child: const Text("View All", style: redFontText)),
+                   ],
+                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 14.0, bottom: 10, right: 5, left: 5),
+                    padding: const EdgeInsets.only( bottom: 10, right: 5, left: 5),
                     child: GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 6,
+                      itemCount: 8,
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: 4,
                         crossAxisSpacing: 10,
-                        mainAxisSpacing: 5,
+                        mainAxisSpacing: 20,
                         childAspectRatio: 0.90,
                       ),
                       itemBuilder: (BuildContext context, int index) {
@@ -275,11 +299,11 @@ class LandingPageState extends State<LandingPage> {
                                 color: const Color.fromRGBO(0, 0, 0, 0.11),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              height: 120,
+                              height: 100,
                               width: MediaQuery.of(context).size.width,
                               child: Image.asset(
                                 item.icon,
-                                width: 50,
+                                width: 70,
                                 height: 70,
                               ),
                             ),
@@ -349,7 +373,7 @@ class LandingPageState extends State<LandingPage> {
     ];
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 200,
+      height: 170,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         boxShadow: const [

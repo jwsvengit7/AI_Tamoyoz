@@ -1,5 +1,7 @@
+import 'package:ai_tamayoz/core/appbar/font.dart';
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
 import 'package:ai_tamayoz/core/dialog/failure_dialog.dart';
+import 'package:ai_tamayoz/core/extensions/logger_extension.dart';
 import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/core/widget/loading/progress_indicator_scaffold.dart';
 import 'package:ai_tamayoz/core/widget/tamayoz_input_field.dart';
@@ -14,6 +16,7 @@ import 'package:ai_tamayoz/core/colors/color.dart';
 import 'package:ai_tamayoz/feature/startup/presentation/widgets/onboarding_background.dart';
 import 'package:ai_tamayoz/gen/assets.gen.dart';
 import 'package:ai_tamayoz/core/extensions/size_extension.dart';
+  enum Authstatus  {LOGIN,SIGNUP,FORGET}
 
 class OnboardingScreenTwo extends StatefulWidget {
   const OnboardingScreenTwo({super.key});
@@ -25,27 +28,21 @@ class OnboardingScreenTwo extends StatefulWidget {
 class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
   final email = TextEditingController();
   final password = TextEditingController();
-  TextStyle get titleStyle => const TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 30,
-        height: 1,
-        color: TamayozLoanColors.white,
-      );
-
-      bool colorStatus=false;
+  final font = FontFamilys();
 
 
-  TextStyle get titleStyle2 => const TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
-        height: 1,
-        color: TamayozLoanColors.white,
-      );
+  bool colorStatus=false;
+  Authstatus status = Authstatus.LOGIN;
+
+
+
+
 
 @override
   void initState() {
     super.initState();
-    colorStatus = false; // Initialize the status variable
+    colorStatus = false; 
+    status == Authstatus.LOGIN;// Initialize the status variable
   }
   @override
   Widget build(BuildContext context) {
@@ -68,10 +65,10 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
           child: OnBoardingBackground(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                  flex: 2,
-                  child: Align(
+                  child: Container(
                     alignment: Alignment.center,
                     child: Image.asset(
                       Assets.images.logo.path,
@@ -81,36 +78,39 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 100,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Welcome Back",
-                            style: titleStyle,
-                          ),
-                          Text("\nLogin to your Account", style: titleStyle2)
-                        ],
-                      )),
-                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Welcome Back",
+                                style: font.titleStyle,
+                              ),
+                              Text("\nLogin to your Account", style: font.titleStyle2)
+                            ],
+                          )),
+                    ),
+               
+               const SizedBox(height:15),
+
                 BottomSheets(
-                  height: 420.0,
+                  height: 440.h,
                   child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 15.0, bottom: 15, left: 25, right: 25),
+                      padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(
-                            height: 30,
+                            height: 20,
                           ),
-                          const Text(
+                           Text(
                             'Enter Your Crendentials',
-                            style: TextStyle(color: Colors.black, fontSize: 18),
+style: font.textLabelForm,
                           ),
                           const SizedBox(
                             height: 10,
@@ -148,17 +148,24 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
                                     style: TextStyle(
                                       color: Color.fromRGBO(19, 201, 226, 1),
                                       fontSize: 16,
+
                                     ),
                                   ),
                                 ),
                               )),
-                          TamayozLoanButtons(
-                                  context: context,
-                                  onTap: () =>_handleSubmission(context),
-                                  text: "Login",
-                                  textColor: TamayozLoanColors.white,
-                                  color: colorStatus? TamayozLoanColors.black1 : TamayozLoanColors.grey4)
-                              .normal(),
+                            
+
+                          Padding(
+                            padding: const EdgeInsets.only(top:12.0,bottom: 12.0),
+                            child: TamayozLoanButtons(
+                                    context: context,
+                                    onTap: () =>_handleSubmission(context),
+                                    text: "Login",
+                                    textColor: TamayozLoanColors.white,
+                                    color: colorStatus? TamayozLoanColors.black1 : TamayozLoanColors.grey4)
+                                .normal(),
+                          ),
+                            
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -176,6 +183,7 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
                                     style: TextStyle(
                                       color: Color.fromRGBO(19, 201, 226, 1),
                                       fontSize: 16,
+
                                     ),
                                   ),
                                 ),
@@ -183,6 +191,8 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
                         ]),
                   ),
                 )
+                ],
+                ),
               ],
             ),
           ),
@@ -219,14 +229,17 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
   }
 
   void _authBlocListener(BuildContext context, AuthenticationState state) {
+    "************".log();
     state.maybeWhen(
       orElse: () {},
       TamayozAuthFailed: (message) {
+           "***** $message *******".log();
         // FailureDialog.show(
         //   context,
         //   message,
         //   header: "Error",
         // );
+        debugPrint(message);
         context.showToast(message);
       },
       TamayozAuthSuccessful: (kioskAuthData) {

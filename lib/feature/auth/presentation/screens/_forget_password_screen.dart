@@ -1,3 +1,4 @@
+import 'package:ai_tamayoz/core/appbar/font.dart';
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
 import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/core/widget/tamayoz_input_field.dart';
@@ -20,19 +21,9 @@ class ForgetPasswordScreen extends StatefulWidget {
 
 class ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
     final email = TextEditingController();
+      final font = FontFamilys();
 
-  TextStyle get titleStyle => const TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 30,
-        height: 1,
-        color: TamayozLoanColors.white,
-      );
-  TextStyle get titleStyle2 => const TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
-        height: 1,
-        color: TamayozLoanColors.white,
-      );
+
 
   @override
   Widget build(BuildContext context) {
@@ -70,16 +61,16 @@ class ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       children: [
                         Text(
                           "Forget Password",
-                          style: titleStyle,
+                          style: font.titleStyle,
                         ),
-                        Text("\nWill sent you Reset Link", style: titleStyle2)
+                        Text("\nWill sent you Reset Link", style: font.titleStyle2)
                       ],
                     )),
               ),
               BottomSheets(
-                height: 320.0,
+                height: 350.0.h,
                 child: Padding(
-                  padding: const EdgeInsets.only(top:15.0,bottom: 15,left:25,right:25),
+                      padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -103,13 +94,16 @@ class ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
                            
                        
-                        TamayozLoanButtons(
-                                context: context,
-                                onTap: () {},
-                                text: "Reset Password",
-                                textColor: TamayozLoanColors.white,
-                                color: TamayozLoanColors.grey1)
-                            .normal(),
+                        Padding(
+                          padding: const EdgeInsets.only(top:12.0,bottom: 12.0),
+                          child: TamayozLoanButtons(
+                                  context: context,
+                                  onTap: () {},
+                                  text: "Reset Password",
+                                  textColor: TamayozLoanColors.white,
+                                  color: TamayozLoanColors.grey1)
+                              .normal(),
+                        ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                              children:[

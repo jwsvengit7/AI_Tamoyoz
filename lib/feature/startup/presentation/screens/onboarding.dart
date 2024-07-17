@@ -1,4 +1,6 @@
+import 'package:ai_tamayoz/core/appbar/font.dart';
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
+import 'package:ai_tamayoz/feature/auth/presentation/screens/auth_screen.dart';
 import 'package:ai_tamayoz/feature/auth/presentation/screens/login_screen_two.dart';
 import 'package:ai_tamayoz/feature/startup/presentation/widgets/bottomSheet.dart';
 import 'package:flutter/material.dart';
@@ -16,18 +18,9 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class GetStatedScreenState extends State<OnboardingScreen> {
-  TextStyle get titleStyle => const TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 30,
-        height: 1,
-        color: TamayozLoanColors.white,
-      );
-  TextStyle get titleStyle2 => const TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 20,
-        height: 1,
-        color: TamayozLoanColors.white,
-      );
+        final font = FontFamilys();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -64,41 +57,47 @@ class GetStatedScreenState extends State<OnboardingScreen> {
                     children: [
                       Text(
                         "Welcome!",
-                        style: titleStyle,
+                        style: font.titleStyle,
                       ),
-                      Text("\nLets Get Started!", style: titleStyle2)
+                      Text("\nLets Get Started!", style: font.titleStyle2)
                     ],
                   )),
             ),
             BottomSheets(
-              height: 300.0.h,
-              child: Center(
-                child: Column(
-                  children: [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const Text(
-                    'Select Langauge',
-                    style: TextStyle(color: Colors.black, fontSize: 18),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  TamayozLoanButtons(
-                          context: context,
-                          onTap: () => Navigator.of(context).push(_createRoute()),
-                          text: "English",
-                          color: TamayozLoanColors.black1)
-                      .normal(),
-                  TamayozLoanButtons(
-                          context: context,
-                          onTap:  () => Navigator.of(context).push(_createRoute()),
-                          text: "العربية",
-                          textColor: TamayozLoanColors.black1,
-                          color: TamayozLoanColors.scaffoldBackgroundColor)
-                      .normal()
-                ]),
+              height: 270.0.h,
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Center(
+                  child: Column(
+                    children: [
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    const Text(
+                      'Select Langauge',
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    TamayozLoanButtons(
+                            context: context,
+                            onTap: () => Navigator.of(context).push(_createRoute()),
+                            text: "English",
+                            color: TamayozLoanColors.black1)
+                        .normal(),
+                           const SizedBox(
+                      height: 15,
+                    ),
+                    TamayozLoanButtons(
+                            context: context,
+                            onTap:  () => Navigator.of(context).push(_createRoute()),
+                            text: "العربية",
+                            textColor: TamayozLoanColors.black1,
+                            color: TamayozLoanColors.scaffoldBackgroundColor)
+                        .normal()
+                  ]),
+                ),
               ),
             )
           ],

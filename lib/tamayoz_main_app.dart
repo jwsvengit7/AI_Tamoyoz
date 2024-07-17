@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart' as pathProvider;
 import 'package:ai_tamayoz/feature/auth/api/authentication_api.dart';
@@ -94,11 +95,10 @@ class _MyAppState extends State<MyApp> {
               child:  MaterialApp.router(
                   debugShowCheckedModeBanner: false,
                   backButtonDispatcher: RootBackButtonDispatcher(),
-                  theme: SchedulerBinding
-                              .instance.platformDispatcher.platformBrightness ==
-                          Brightness.dark
-                      ? TamayozLoanTheme.getDarkThemeData(context)
-                      : TamayozLoanTheme.getLightThemeData(context),
+                  theme: ThemeData(
+        textTheme: GoogleFonts.nunitoSansTextTheme(
+          Theme.of(context).textTheme,
+        ),),
                   title: StringConst.appName,
                   routerDelegate: router.routerDelegate,
                   routeInformationParser: router.routeInformationParser,

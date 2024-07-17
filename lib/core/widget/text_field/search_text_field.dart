@@ -68,8 +68,7 @@ class _TamayozSearchTextFieldState extends State<TamayozSearchTextField> {
         fillColor: widget.readonly ?? false ? Colors.grey.shade300 : TamayozLoanColors.white,
         hintText: widget.hintText,
         hintStyle: const TextStyle(
-          fontWeight: FontWeight.w600,
-          fontSize: 17,
+          fontSize: 15,
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
         border: OutlineInputBorder(

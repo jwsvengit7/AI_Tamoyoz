@@ -37,6 +37,7 @@ class Car {
     CarType(name: 'Tesla', icon: Assets.images.teslaTSymbol1.path),
     CarType(name: 'Honda', icon: Assets.images.hondaLogo1.path),
     CarType(name: 'BNW', icon: Assets.images.bmw.path),
+    CarType(name: 'Tesla', icon: Assets.images.teslaTSymbol1.path),
   ];
      final List<Car> cars = [
     Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker.path,price:1.0,kilometer:"8,750 KWD"),

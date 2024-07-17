@@ -2,7 +2,7 @@ import 'package:ai_tamayoz/core/colors/color.dart';
 import 'package:flutter/material.dart';
 
 class BottomSheets extends StatelessWidget {
-  final double height;
+  final double? height;
   final Widget? child;
 
   const BottomSheets({super.key, required this.height, this.child});

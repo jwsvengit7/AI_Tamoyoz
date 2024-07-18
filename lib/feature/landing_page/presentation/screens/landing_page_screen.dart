@@ -8,7 +8,6 @@ import 'package:ai_tamayoz/gen/assets.gen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -19,9 +18,16 @@ class LandingPage extends StatefulWidget {
 
 class LandingPageState extends State<LandingPage> {
   final PageController _pageController = PageController();
-  int _currentPage = 0;
+  int _currentPage = 1;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+ final List<String> carPage = [
+        Assets.images.maincar.path,
 
+      Assets.images.maincar.path,
+      Assets.images.benWhitaker.path,
+      Assets.images.benWhitaker2.path,
+
+    ];
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -31,60 +37,54 @@ class LandingPageState extends State<LandingPage> {
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
-                  backgroundColor: Colors.white,
-
+        backgroundColor: Colors.white,
         key: _scaffoldKey,
-        drawer:  TamayozDrawer(),
-  
-      
-          
-        
-     
+        drawer: TamayozDrawer(),
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
             child: Column(
-
               children: [
-                 SizedBox(
-                  width:MediaQuery.of(context).size.width,
-               child: Padding(
-              padding: const EdgeInsets.only(top:40.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                 const Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                          width:200,
-                        child:  Text(
-                          "Find Your",
-                          style: TextStyle(fontSize: 22, color: Colors.black),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 40.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              width: 200,
+                              child: Text(
+                                "Find Your",
+                                style: TextStyle(
+                                    fontSize: 22, color: Colors.black),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 200,
+                              child: Text(
+                                "New Vehicle",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                         SizedBox(
-                            width:200,
-                           child:  Text(
-                                                     "New Vehicle",
-                                                     style: TextStyle(fontSize: 22, color: Colors.black,fontWeight: FontWeight.bold),
-                                                   ),
-                         ),
-                    ],
-                  ),
-                  InkWell(
-                      onTap: () {
-                        _scaffoldKey.currentState?.openDrawer();
-                      },
-                    child: Image.asset(
-                    Assets.icons.menu2.path
-                   
+                        InkWell(
+                          onTap: () {
+                            _scaffoldKey.currentState?.openDrawer();
+                          },
+                          child: Image.asset(Assets.icons.menu2.path),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ),
-       ),
+                ),
                 const SizedBox(height: 20),
                 Stack(
                   alignment: Alignment.center,
@@ -94,7 +94,7 @@ class LandingPageState extends State<LandingPage> {
                       height: 170,
                       child: PageView.builder(
                         controller: _pageController,
-                        itemCount: 2,
+                        itemCount: carPage.length,
                         onPageChanged: (int page) {
                           setState(() {
                             _currentPage = page;
@@ -105,48 +105,47 @@ class LandingPageState extends State<LandingPage> {
                         },
                       ),
                     ),
-               ],
+                  ],
                 ),
-                const SizedBox(height:20),
-                      Container(
-                        alignment: Alignment.center,
-                        width:100,
-                        child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(2, (index) {
-                          return GestureDetector(
-                            onTap: () {
-                              _pageController.animateToPage(
-                                index,
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            child: Container(
-                              margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                              width: _currentPage == index ? 25.0 : 20.0,
-                              height: _currentPage == index ? 5.0 : 5.0,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: _currentPage == index ? TamayozLoanColors.grey3 : TamayozLoanColors.grey8,
-                              ),
-                            ),
+                const SizedBox(height: 10),
+                Container(
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(carPage.length, (index) {
+                      return GestureDetector(
+                        onTap: () {
+                          _pageController.animateToPage(
+                            index,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
                           );
-                        }),
-                                            ),
-                      ),
-                 
-                const SizedBox(height: 20),
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                          width: _currentPage == index ? 25.0 : 20.0,
+                          height: _currentPage == index ? 5.0 : 5.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: _currentPage == index
+                                ? TamayozLoanColors.grey3
+                                : TamayozLoanColors.grey8,
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+                const SizedBox(height: 30),
                 InkWell(
-                  onTap: (){
-                  const AvailableScreenRoute().push(context);
+                  onTap: () {
+                    const AvailableScreenRoute().push(context);
                   },
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                    color: const Color.fromRGBO(0, 0, 0, 0.11),
-
+                      color: const Color.fromRGBO(0, 0, 0, 0.11),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,7 +159,8 @@ class LandingPageState extends State<LandingPage> {
                               SizedBox(height: 20),
                               Text("  Available Cars",
                                   style: TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.bold)),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
                               Text("  Browse our",
                                   style: TextStyle(fontSize: 15)),
                               Text("  Available Cars",
@@ -180,8 +180,7 @@ class LandingPageState extends State<LandingPage> {
                 ),
                 const SizedBox(height: 10),
                 Container(
-                  width:MediaQuery.of(context).size.width,
-                
+                  width: MediaQuery.of(context).size.width,
                   child: SingleChildScrollView(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -191,22 +190,19 @@ class LandingPageState extends State<LandingPage> {
                           children: [
                             InkWell(
                               onTap: () {
-                                if(index==0){
+                                if (index == 0) {
                                   const AddCarsScreenRoute().push(context);
-                                }
-                                else if(index==1){
-                                const AddCarsScreenRoute().push(context);
-
-                                }
-                                   else{
-                                const AddCarsScreenRoute().push(context);
-
+                                } else if (index == 1) {
+                                  const AddCarsScreenRoute().push(context);
+                                } else {
+                                  const AddCarsScreenRoute().push(context);
                                 }
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(5.0),
                                 child: Container(
-                                  width: MediaQuery.of(context).size.width / 3.7,
+                                  width:
+                                      MediaQuery.of(context).size.width / 3.7,
                                   height: 120,
                                   decoration: BoxDecoration(
                                     color: TamayozLoanColors.white2,
@@ -221,7 +217,8 @@ class LandingPageState extends State<LandingPage> {
                                     ],
                                   ),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Container(
@@ -230,10 +227,13 @@ class LandingPageState extends State<LandingPage> {
                                         decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                           color: index == 1
-                                              ? const Color.fromRGBO(201, 116, 116, 0.27)
+                                              ? const Color.fromRGBO(
+                                                  201, 116, 116, 0.27)
                                               : index == 2
-                                                  ? const Color.fromRGBO(36, 226, 19, 0.17)
-                                                  : const Color.fromRGBO(253, 204, 78, 0.2),
+                                                  ? const Color.fromRGBO(
+                                                      36, 226, 19, 0.17)
+                                                  : const Color.fromRGBO(
+                                                      253, 204, 78, 0.2),
                                         ),
                                         child: Image.asset(
                                           value.icon,
@@ -261,29 +261,31 @@ class LandingPageState extends State<LandingPage> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                   children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
                     const Text(
-                       "Popular Brands",
-                       style: TextStyle(fontSize: 20),
-                     ),
-                     InkWell(
-                       onTap: () {
-                         const BrandCarScreenRoute().push(context);
-                       },
-                       child: const Text("View All", style: redFontText)),
-                   ],
-                 ),
+                      "Popular Brands",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    InkWell(
+                        onTap: () {
+                          const BrandCarScreenRoute().push(context);
+                        },
+                        child: const Text("View All", style: redFontText)),
+                  ],
+                ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Padding(
-                    padding: const EdgeInsets.only( bottom: 10, right: 5, left: 5),
+                    padding:
+                        const EdgeInsets.only(bottom: 10, right: 5, left: 5),
                     child: GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: 8,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 4,
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 20,
@@ -313,20 +315,20 @@ class LandingPageState extends State<LandingPage> {
                     ),
                   ),
                 ),
-                 Padding(
+                Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                     const Text(
+                      const Text(
                         "Special Cars",
                         style: TextStyle(fontSize: 17),
                       ),
                       InkWell(
-                        onTap: (){
-                          const SpecialCarsScreenRoute().push(context);
-                        },
-                        child: const Text("View All", style: redFontText)),
+                          onTap: () {
+                            const SpecialCarsScreenRoute().push(context);
+                          },
+                          child: const Text("View All", style: redFontText)),
                     ],
                   ),
                 ),
@@ -335,25 +337,33 @@ class LandingPageState extends State<LandingPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: 250,
-                        child: PageView.builder(
-                          controller: _pageController,
-                          itemCount: cars.length,
-                          onPageChanged: (int page) {
-                            setState(() {
-                              _currentPage = page;
-                            });
-                          },
-                          itemBuilder: (BuildContext context, int index) {
-                            return CarWidget(
-                              car: cars[index],
-                              width: MediaQuery.of(context).size.width,
-                            );
-                          },
-                        ),
-                      ),
+                      child: Container(
+                          height: 250,
+                          margin: const EdgeInsets.only(bottom: 20, top: 20),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: List.generate(
+                                cars.length,
+                                (index) {
+                                  final value = cars[index];
+                               
+                                  return InkWell(
+                                      child: Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: SizedBox(
+                                        width: 300,
+                                        height: 250,
+                                        child: CarWidget(
+                                          car: value,
+                                          width:
+                                              MediaQuery.of(context).size.width,
+                                        )),
+                                  ));
+                                },
+                              ),
+                            ),
+                          )),
                     ),
                   ],
                 ),
@@ -367,10 +377,7 @@ class LandingPageState extends State<LandingPage> {
   }
 
   Widget buildImageSection(int index, BuildContext context) {
-    final List<String> car = [
-      Assets.images.maincar.path,
-      Assets.images.benWhitaker2.path,
-    ];
+   
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 170,
@@ -386,7 +393,7 @@ class LandingPageState extends State<LandingPage> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Image.asset(
-          car[index],
+          carPage[index],
           fit: BoxFit.cover,
         ),
       ),

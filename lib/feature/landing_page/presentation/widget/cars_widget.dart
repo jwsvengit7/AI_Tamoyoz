@@ -22,70 +22,60 @@ class CarWidget extends StatelessWidget{
             extra:
                 CarsDetailsRouteData(data:CarsDetailsModel(name: car.name, price: car.price, description: 'lorem', date: '123', brand: car.name,image: List.of([car.icon]).toList()), ));
       },
-       child: Container(
-        
-        width: width,
-        // height: 250,
-       color: const Color.fromARGB(28, 139, 138, 138),
-       
-        child:Column(
-          children:[
-            Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: const [
-            BoxShadow(
-              color: Color.fromARGB(255, 208, 222, 245),
-              blurRadius: 15,
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(
-            width:MediaQuery.of(context).size.width,
-        height: status=="available" ? 150.h : 200.h ,
-           car.icon,
-            fit: BoxFit.fill,
-            
-          ),
-        ),
-            ),
-       
-            const SizedBox(height: 10,),
-             Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Row(children:[
-                Text(car.name),
-               const SizedBox(width: 10,),
-               status != "cars" ? Image.asset(Assets.images.check.path): const SizedBox(),
-               
-               
-                         ]),
-             ),
-       
-          
-            Padding(
-              padding: const EdgeInsets.only(left:8.0,right:8.0),
-              child: status=="available" ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                children:[
-                 const Text("8,750 KWD  | 2000"),
-                  Text(car.kilometer,style:const TextStyle(color:Colors.red,fontWeight: FontWeight.bold))
-                ]
-              ) : 
-              Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children:[
-                 const Text("8,750 KWD  | 2000"),
-                  Text(car.kilometer,style:const TextStyle(color:Colors.red,fontWeight: FontWeight.bold))
-                ]
-              ),
-            )
-          ]
-        ),
+       child: Column(
+         children:[
+           Container(
+       decoration: BoxDecoration(
+         borderRadius: BorderRadius.circular(20),
+         boxShadow: const [
+           BoxShadow(
+             color: Color.fromARGB(255, 208, 222, 245),
+             blurRadius: 15,
            ),
+         ],
+       ),
+       child: Image.asset(
+         width:width,
+              height: status=="available" ? 150.h : 200.h ,
+        car.icon,
+         fit: BoxFit.fill,
+         
+       ),
+           ),
+              
+           const SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(children:[
+               Text(car.name),
+              const SizedBox(width: 10,),
+              status != "cars" ? Image.asset(Assets.images.check.path): const SizedBox(),
+              
+              
+                        ]),
+            ),
+              
+         
+           Padding(
+             padding: const EdgeInsets.only(left:8.0,right:8.0),
+             child: status=="available" ? Column(
+                 crossAxisAlignment: CrossAxisAlignment.start,
+                 mainAxisAlignment: MainAxisAlignment.start,
+               children:[
+                const Text("8,750 KWD  | 2000"),
+                 Text(car.kilometer,style:const TextStyle(color:Colors.red,fontWeight: FontWeight.bold))
+               ]
+             ) : 
+             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children:[
+                const Text("8,750 KWD  | 2000"),
+                 Text(car.kilometer,style:const TextStyle(color:Colors.red,fontWeight: FontWeight.bold))
+               ]
+             ),
+           )
+         ]
+       ),
      );
   }
 }

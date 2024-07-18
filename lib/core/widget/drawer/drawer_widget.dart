@@ -10,6 +10,8 @@ class TamayozDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double drawerWidth =
+
+  
         MediaQuery.of(context).size.width * 0.95; 
 
     return SizedBox(

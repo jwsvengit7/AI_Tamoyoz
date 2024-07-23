@@ -33,7 +33,7 @@ class CarsScreenState extends State<CarsScreen>{
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 14.0, bottom: 10, right: 5, left: 5),
+                            top: 14.0, bottom: 10, right: 10, left: 10),
                         child: GridView.builder(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),

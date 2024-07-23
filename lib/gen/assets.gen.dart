@@ -12,6 +12,12 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/+965.png
+  AssetGenImage get a965 => const AssetGenImage('assets/icons/+965.png');
+
+  /// File path: assets/icons/Vector.png
+  AssetGenImage get vector => const AssetGenImage('assets/icons/Vector.png');
+
   /// File path: assets/icons/a-z.png
   AssetGenImage get aZ => const AssetGenImage('assets/icons/a-z.png');
 
@@ -94,6 +100,8 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        a965,
+        vector,
         aZ,
         book7,
         car,
@@ -158,6 +166,15 @@ class $AssetsImagesGen {
   AssetGenImage get benWhitaker2 =>
       const AssetGenImage('assets/images/ben-whitaker2.png');
 
+  /// File path: assets/images/ben1.png
+  AssetGenImage get ben1 => const AssetGenImage('assets/images/ben1.png');
+
+  /// File path: assets/images/ben2.png
+  AssetGenImage get ben2 => const AssetGenImage('assets/images/ben2.png');
+
+  /// File path: assets/images/benfull.png
+  AssetGenImage get benfull => const AssetGenImage('assets/images/benfull.png');
+
   /// File path: assets/images/brand-car.png
   AssetGenImage get brandCar =>
       const AssetGenImage('assets/images/brand-car.png');
@@ -198,6 +215,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/maincar.png
   AssetGenImage get maincar => const AssetGenImage('assets/images/maincar.png');
 
+  /// File path: assets/images/phone-call.png
+  AssetGenImage get phoneCall =>
+      const AssetGenImage('assets/images/phone-call.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         a1200pxMINILogo1,
@@ -209,6 +230,9 @@ class $AssetsImagesGen {
         app,
         benWhitaker,
         benWhitaker2,
+        ben1,
+        ben2,
+        benfull,
         brandCar,
         brandCar2,
         car1,
@@ -220,7 +244,8 @@ class $AssetsImagesGen {
         icLauncher,
         image1,
         logo,
-        maincar
+        maincar,
+        phoneCall
       ];
 }
 

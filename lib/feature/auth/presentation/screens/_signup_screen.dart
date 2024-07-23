@@ -1,6 +1,7 @@
 import 'package:ai_tamayoz/core/appbar/font.dart';
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
 import 'package:ai_tamayoz/core/router/app_routes.dart';
+import 'package:ai_tamayoz/core/widget/text_field/number_input.dart';
 import 'package:ai_tamayoz/core/widget/text_field/search_text_field.dart';
 import 'package:ai_tamayoz/feature/auth/presentation/screens/_forget_password_screen.dart';
 import 'package:ai_tamayoz/feature/startup/presentation/widgets/bottomSheet.dart';
@@ -100,11 +101,13 @@ class OnboardingScreenSignupState extends State<OnboardingScreenSignup> {
                           ),
                           SizedBox(height:12),
 
-                                TamayozSearchTextField(
-                          controller: mobileNumber,
-                          hintText: "Mobile Number",
-                          type: "number",
-                          ),
+                           PhoneNumberInput(
+                    controller: mobileNumber,
+                    type: "Mobile Number",
+                 
+
+                    // passwordField: true,
+                  ),
                                                     SizedBox(height:12),
 
                               TamayozSearchTextField(

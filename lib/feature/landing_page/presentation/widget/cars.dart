@@ -47,3 +47,13 @@ class Car {
     Car(name: 'Jeep Wrangler X839', icon: Assets.images.benWhitaker2.path,price:1.0,kilometer:"8,750 KWD"),
     Car(name: 'Jeep Wrangler X839', icon: Assets.images.maincar.path,price:1.0,kilometer:"8,750 KWD"),
   ];
+
+       final List<Car> carsService = [
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.benfull.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.ben2.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.ben1.path,price:1.0,kilometer:"8,750 KWD"),
+  
+      Car(name: 'Jeep Wrangler X839', icon: Assets.images.benfull.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.ben2.path,price:1.0,kilometer:"8,750 KWD"),
+    Car(name: 'Jeep Wrangler X839', icon: Assets.images.ben1.path,price:1.0,kilometer:"8,750 KWD"),
+  ];

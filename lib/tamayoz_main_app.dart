@@ -96,9 +96,9 @@ class _MyAppState extends State<MyApp> {
                   debugShowCheckedModeBanner: false,
                   backButtonDispatcher: RootBackButtonDispatcher(),
                   theme: ThemeData(
-        textTheme: GoogleFonts.nunitoSansTextTheme(
-          Theme.of(context).textTheme,
-        ),),
+                    // fontFamily: 'Effra_Trial',
+             textTheme: GoogleFonts.nunitoTextTheme(),
+      ),
                   title: StringConst.appName,
                   routerDelegate: router.routerDelegate,
                   routeInformationParser: router.routeInformationParser,

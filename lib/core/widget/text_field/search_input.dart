@@ -1,3 +1,4 @@
+import 'package:ai_tamayoz/core/colors/color.dart';
 import 'package:flutter/material.dart';
 
 class SearchBarInput extends StatelessWidget {
@@ -16,7 +17,7 @@ class SearchBarInput extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         fillColor: Colors.grey[200],
         suffixIcon: IconButton(
-          icon: Icon(Icons.search),
+          icon: Icon(Icons.search,color: TamayozLoanColors.red2,),
           onPressed: () {
           },
         ),

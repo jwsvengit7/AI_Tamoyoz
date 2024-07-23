@@ -15,13 +15,13 @@ import 'package:ai_tamayoz/core/appbar/appbar.dart';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 
-class AddCarsScreen extends StatefulWidget {
-  const AddCarsScreen({super.key});
+class RequestCarsScreen extends StatefulWidget {
+  const RequestCarsScreen({super.key});
   @override
-  AddCarsScreenState createState() => AddCarsScreenState();
+  RequestCarsScreenState createState() => RequestCarsScreenState();
 }
 
-class AddCarsScreenState extends State<AddCarsScreen> {
+class RequestCarsScreenState extends State<RequestCarsScreen> {
   bool modar = false;
   TextEditingController description =TextEditingController();
   final ImagePicker _picker = ImagePicker();
@@ -58,7 +58,7 @@ class AddCarsScreenState extends State<AddCarsScreen> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: const TamayozLoanAppBar(
-            title: "Add Car",
+            title: "Request Car",
             shouldPop: true,
           ),
           body: SingleChildScrollView(

@@ -50,49 +50,42 @@ class AvailableScreenState extends State<AvailableScreen> {
                    padding:  EdgeInsets.only(left:13.0,right:13.0,top:10,bottom:5),
                    child:  SearchBarInput(),
                  ),
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 80,
-                          child: PageView.builder(
-                            controller: _pageController,
+              Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                        height: 70,
+                        margin: const EdgeInsets.only(bottom: 20, top: 5),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: List.generate(
+                              cars.length,
+                              (index) {
+                                final value = cars[index];
+                             
+                                return InkWell(
+                                    child: Padding(
+                                  padding: const EdgeInsets.all(1.0),
+                                  child: SizedBox(
+                                      width: 110,
+                                      height: 60,
+                                      child: CarViewProduct(i:index)
+                                
+                                  )
+                                  )
+                                  );
 
-                            itemCount: (cars.length / 3)
-                                .ceil(), // Divide data length by 3
-                            onPageChanged: (int page) {
-                              setState(() {
-                                _currentPage = page;
-                              });
-                            },
-                            itemBuilder: (BuildContext context, int pageIndex) {
-                              int startIndex = pageIndex * 3;
-                              int endIndex = startIndex + 3;
-                              List<Widget> items = [];
-                              for (int i = startIndex;
-                                  i < endIndex && i < cars.length;
-                                  i++) {
-                                items.add(
-                             CarViewProduct(i:i)
-                                );
-                              }
-                              while (items.length < 3) {
-                                items.add(Expanded(child: Container()));
-                              }
-
-                              return Row(
-                                children: items,
-                              );
+                          
                             },
                           ),
                         ),
-                      ),
+                        ))
+
+                    
                     ],
-                  ),
-                  const SizedBox(height: 10),
+                
+                  ), 
                   Padding(
                     padding: const EdgeInsets.only(
                         top: 14.0, bottom: 10, right: 15, left: 15),
@@ -131,7 +124,7 @@ class AvailableScreenState extends State<AvailableScreen> {
                     width: MediaQuery.of(context).size.width,
                     child: Padding(
                       padding: const EdgeInsets.only(
-                          top: 14.0, bottom: 10, right: 5, left: 5),
+                          top: 14.0, bottom: 10, right: 10, left: 10),
                       child: GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
@@ -140,7 +133,7 @@ class AvailableScreenState extends State<AvailableScreen> {
                           crossAxisCount: status ? 1 : 2,
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 5,
-                          childAspectRatio: status ? 1.5 : 0.70,
+                          childAspectRatio: status ? 1.5 : 0.85,
                         ),
                         itemBuilder: (BuildContext context, int index) {
                           final item = cars[index];

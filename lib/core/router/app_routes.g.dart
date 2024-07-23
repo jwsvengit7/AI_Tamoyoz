@@ -92,6 +92,10 @@ RouteBase get $carsRoute => GoRouteData.$route(
           path: 'special-car',
           factory: $SpecialCarsScreenRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'car-service',
+          factory: $CarServiceRouteExtension._fromState,
+        ),
       ],
     );
 
@@ -226,6 +230,24 @@ extension $SpecialCarsScreenRouteExtension on SpecialCarsScreenRoute {
 
   String get location => GoRouteData.$location(
         '/cars/special-car',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $CarServiceRouteExtension on CarServiceRoute {
+  static CarServiceRoute _fromState(GoRouterState state) =>
+      const CarServiceRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/car-service',
       );
 
   void go(BuildContext context) => context.go(location);

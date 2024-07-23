@@ -24,6 +24,9 @@ part of '../../../core/router/app_routes.dart';
       TypedGoRoute<SpecialCarsScreenRoute>(
       path: "special-car"
     ),
+          TypedGoRoute<CarServiceRoute>(
+      path: "car-service"
+    ),
   ]
 )
 @immutable
@@ -107,5 +110,13 @@ class BrandRouteType {
   @override
   Widget build(BuildContext context,GoRouterState state) {
     return const SpecialCarsScreen();
+  }
+ }
+
+ class CarServiceRoute extends GoRouteData{
+      const CarServiceRoute();
+  @override
+  Widget build(BuildContext context,GoRouterState state) {
+    return const CarServiceScreen();
   }
  }

@@ -22,7 +22,6 @@ class LandingPageState extends State<LandingPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
  final List<String> carPage = [
         Assets.images.maincar.path,
-
       Assets.images.maincar.path,
       Assets.images.benWhitaker.path,
       Assets.images.benWhitaker2.path,
@@ -60,7 +59,7 @@ class LandingPageState extends State<LandingPage> {
                               child: Text(
                                 "Find Your",
                                 style: TextStyle(
-                                    fontSize: 22, color: Colors.black),
+                                    fontSize: 20, color: Colors.black),
                               ),
                             ),
                             SizedBox(
@@ -68,7 +67,7 @@ class LandingPageState extends State<LandingPage> {
                               child: Text(
                                 "New Vehicle",
                                 style: TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 20,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -79,7 +78,7 @@ class LandingPageState extends State<LandingPage> {
                           onTap: () {
                             _scaffoldKey.currentState?.openDrawer();
                           },
-                          child: Image.asset(Assets.icons.menu2.path),
+                          child: Image.asset(Assets.icons.menu2.path,width:30,height:30),
                         ),
                       ],
                     ),
@@ -179,7 +178,7 @@ class LandingPageState extends State<LandingPage> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: SingleChildScrollView(
                     child: Row(
@@ -195,7 +194,7 @@ class LandingPageState extends State<LandingPage> {
                                 } else if (index == 1) {
                                   const AddCarsScreenRoute().push(context);
                                 } else {
-                                  const AddCarsScreenRoute().push(context);
+                                  const CarServiceRoute().push(context);
                                 }
                               },
                               child: Padding(
@@ -222,10 +221,11 @@ class LandingPageState extends State<LandingPage> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Container(
-                                        width: 60,
-                                        height: 60,
+                                        width: 50,
+                                        height: 50,
                                         decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
+                                          // shape: BoxShape.circle,
+                                          borderRadius: BorderRadius.circular(100),
                                           color: index == 1
                                               ? const Color.fromRGBO(
                                                   201, 116, 116, 0.27)
@@ -266,7 +266,7 @@ class LandingPageState extends State<LandingPage> {
                   children: [
                     const Text(
                       "Popular Brands",
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 17),
                     ),
                     InkWell(
                         onTap: () {
@@ -315,56 +315,53 @@ class LandingPageState extends State<LandingPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        "Special Cars",
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      InkWell(
-                          onTap: () {
-                            const SpecialCarsScreenRoute().push(context);
-                          },
-                          child: const Text("View All", style: redFontText)),
-                    ],
-                  ),
+                SizedBox(height: 10,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Special Cars",
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    InkWell(
+                        onTap: () {
+                          const SpecialCarsScreenRoute().push(context);
+                        },
+                        child: const Text("View All", style: redFontText)),
+                  ],
                 ),
+                                SizedBox(height: 10,),
+
                 Stack(
                   alignment: Alignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          height: 250,
-                          margin: const EdgeInsets.only(bottom: 20, top: 20),
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: List.generate(
-                                cars.length,
-                                (index) {
-                                  final value = cars[index];
-                               
-                                  return InkWell(
-                                      child: Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: SizedBox(
-                                        width: 300,
-                                        height: 250,
-                                        child: CarWidget(
-                                          car: value,
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                        )),
-                                  ));
-                                },
-                              ),
+                    Container(
+                        height: 250,
+                        margin: const EdgeInsets.only(bottom: 20, top: 5),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: List.generate(
+                              cars.length,
+                              (index) {
+                                final value = cars[index];
+                             
+                                return InkWell(
+                                    child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: SizedBox(
+                                      width: 250,
+                                      height: 250,
+                                      child: CarWidget(
+                                        car: value,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                      )),
+                                ));
+                              },
                             ),
-                          )),
-                    ),
+                          ),
+                        )),
                   ],
                 ),
                 const SizedBox(height: 10),

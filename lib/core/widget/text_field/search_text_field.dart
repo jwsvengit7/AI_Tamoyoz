@@ -26,13 +26,14 @@ class TamayozSearchTextField extends StatefulWidget {
 
 class _TamayozSearchTextFieldState extends State<TamayozSearchTextField> {
   bool _isObscured = true;
+  final _prefix = '+965 ';
 
   @override
   void initState() {
     super.initState();
     if (widget.type == 'number') {
-      widget.controller.text = '+965 ';
-      widget.controller.addListener(_handlePrefix);
+      // widget.controller.text = _prefix; // Set initial text with prefix
+      // widget.controller.addListener(_handlePrefix);
     } else if (widget.value != null) {
       widget.controller.text = widget.value!;
     }
@@ -41,19 +42,19 @@ class _TamayozSearchTextFieldState extends State<TamayozSearchTextField> {
   @override
   void dispose() {
     if (widget.type == 'number') {
-      widget.controller.removeListener(_handlePrefix);
+      // widget.controller.removeListener(_handlePrefix);
     }
     super.dispose();
   }
 
-  void _handlePrefix() {
-    if (widget.type == 'number' && !widget.controller.text.startsWith('+965 ')) {
-      widget.controller.text = '+965 ';
-      widget.controller.selection = TextSelection.fromPosition(
-        TextPosition(offset: widget.controller.text.length),
-      );
-    }
-  }
+  // void _handlePrefix() {
+  //   if (widget.type == 'number' && !widget.controller.text.startsWith(_prefix)) {
+  //     // widget.controller.text = _prefix;
+  //     widget.controller.selection = TextSelection.fromPosition(
+  //       TextPosition(offset: widget.controller.text.length),
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -72,15 +73,15 @@ class _TamayozSearchTextFieldState extends State<TamayozSearchTextField> {
         ),
         contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
         border: OutlineInputBorder(
-          borderSide: const BorderSide(color: TamayozLoanColors.grey8, width: 2.0),
+          borderSide: const BorderSide(color: TamayozLoanColors.grey8, width: 1.0),
           borderRadius: BorderRadius.circular(10.0),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: TamayozLoanColors.grey8, width: 2.0),
+          borderSide: const BorderSide(color: TamayozLoanColors.grey8, width: 1.0),
           borderRadius: BorderRadius.circular(10.0),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: TamayozLoanColors.grey8, width: 2.0),
+          borderSide: const BorderSide(color: TamayozLoanColors.grey8, width: 1.0),
           borderRadius: BorderRadius.circular(10.0),
         ),
         suffixIcon: widget.type == 'password'
@@ -91,6 +92,18 @@ class _TamayozSearchTextFieldState extends State<TamayozSearchTextField> {
                     _isObscured = !_isObscured;
                   });
                 },
+              )
+            : null,
+        prefix: widget.type == 'number'
+            ? Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  "+965",
+                  style: const TextStyle(
+                    color: Colors.blue,
+                    fontSize: 15,
+                  ),
+                ),
               )
             : null,
       ),

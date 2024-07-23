@@ -27,6 +27,7 @@ class CarViewProduct extends StatelessWidget {
               Image.asset(Assets.images.brandCar2.path, width: 40, height: 50),
               Text("Sedan",
                   style: TextStyle(
+                    fontSize: 12,
                       color: i == 0
                           ? TamayozLoanColors.white
                           : TamayozLoanColors.black1))

@@ -1,6 +1,7 @@
 import 'package:ai_tamayoz/core/appbar/appbar.dart';
 import 'package:ai_tamayoz/core/colors/color.dart';
 import 'package:ai_tamayoz/core/widget/text_field/search_input.dart';
+import 'package:ai_tamayoz/feature/cars/presentation/screens/widget/car_view.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars_widget.dart';
 import 'package:ai_tamayoz/gen/assets.gen.dart';
@@ -49,80 +50,44 @@ class SpecialCarsScreenState extends State<SpecialCarsScreen> {
                    padding:  EdgeInsets.only(left:13.0,right:13.0,top:10,bottom:5),
                    child:  SearchBarInput(),
                  ),
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 80,
-                          child: PageView.builder(
-                            controller: _pageController,
 
-                            itemCount: (cars.length / 3)
-                                .ceil(), // Divide data length by 3
-                            onPageChanged: (int page) {
-                              setState(() {
-                                _currentPage = page;
-                              });
-                            },
-                            itemBuilder: (BuildContext context, int pageIndex) {
-                              int startIndex = pageIndex * 3;
-                              int endIndex = startIndex + 3;
-                              List<Widget> items = [];
-                              for (int i = startIndex;
-                                  i < endIndex && i < cars.length;
-                                  i++) {
-                                items.add(
-                                  Expanded(
+                 
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                        height: 70,
+                        margin: const EdgeInsets.only(bottom: 20, top: 5),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: List.generate(
+                              cars.length,
+                              (index) {
+                                final value = cars[index];
+                             
+                                return InkWell(
                                     child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                          color: i == 0
-                                              ? const Color.fromARGB(
-                                                  255, 65, 64, 64)
-                                              : TamayozLoanColors.grey8,
-                                        ),
-                                        width: 30,
-                                        height: 70,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Image.asset(
-                                                Assets.images.brandCar2.path),
-                                            Text("Sedan",
-                                                style: TextStyle(
-                                                    color: i == 0
-                                                        ? TamayozLoanColors
-                                                            .white
-                                                        : TamayozLoanColors
-                                                            .black1))
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }
-                              while (items.length < 3) {
-                                items.add(Expanded(child: Container()));
-                              }
+                                  padding: const EdgeInsets.all(1.0),
+                                  child: SizedBox(
+                                      width: 110,
+                                      height: 60,
+                                      child: CarViewProduct(i:index)
+                                
+                                  )
+                                  )
+                                  );
 
-                              return Row(
-                                children: items,
-                              );
+                          
                             },
                           ),
                         ),
-                      ),
+                        ))
+
+                    
                     ],
+                
                   ),
-                  const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.only(
                         top: 14.0, bottom: 10, right: 15, left: 15),

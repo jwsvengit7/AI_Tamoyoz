@@ -22,10 +22,31 @@ part of '../../../core/router/app_routes.dart';
       path: "brands-cars"
     ),
       TypedGoRoute<SpecialCarsScreenRoute>(
-      path: "special-car"
+      path: "special-car",
+      routes: [
+        TypedGoRoute<FilterScreenRoute>(
+      path: "filter-screen",
+      routes: [
+          TypedGoRoute<ColorScreenRoute>(
+      path: "color-screen",
+     
+          ),
+          TypedGoRoute<BrandScreenRoute>(
+      path: "brand-screen",
+    
+          ),
+              TypedGoRoute<ModelScreenRoute>(
+      path: "model-screen",
+          )
+      ]
+    ),
+      ]
     ),
           TypedGoRoute<CarServiceRoute>(
       path: "car-service"
+    ),
+        TypedGoRoute<RequestCarsScreenRoute>(
+      path: "car-request"
     ),
   ]
 )
@@ -118,5 +139,45 @@ class BrandRouteType {
   @override
   Widget build(BuildContext context,GoRouterState state) {
     return const CarServiceScreen();
+  }
+ }
+
+ 
+ class RequestCarsScreenRoute extends GoRouteData{
+      const RequestCarsScreenRoute();
+  @override
+  Widget build(BuildContext context,GoRouterState state) {
+    return const RequestCarsScreen();
+  }
+ }
+  class FilterScreenRoute extends GoRouteData{
+      const FilterScreenRoute();
+  @override
+  Widget build(BuildContext context,GoRouterState state) {
+    return const FilterScreen();
+  }
+ }
+  class ColorScreenRoute extends GoRouteData{
+    final String text;
+      const ColorScreenRoute({required this.text});
+
+  @override
+  Widget build(BuildContext context,GoRouterState state) {
+   
+    return  ColorScreen(text:text);
+  }
+ }
+  class ModelScreenRoute extends GoRouteData{
+      const ModelScreenRoute();
+  @override
+  Widget build(BuildContext context,GoRouterState state) {
+    return const Modelscreen();
+  }
+ }
+  class BrandScreenRoute extends GoRouteData{
+      const BrandScreenRoute();
+  @override
+  Widget build(BuildContext context,GoRouterState state) {
+    return const BrandScreenSort();
   }
  }

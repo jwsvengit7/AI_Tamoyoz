@@ -1,5 +1,6 @@
 import 'package:ai_tamayoz/core/colors/color.dart';
 import 'package:ai_tamayoz/core/router/app_routes.dart';
+import 'package:ai_tamayoz/core/widget/drawer/bottom_sheet.dart';
 import 'package:ai_tamayoz/core/widget/drawer/drawer_widget.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/utils/fonts.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
@@ -27,6 +28,15 @@ class LandingPageState extends State<LandingPage> {
       Assets.images.benWhitaker2.path,
 
     ];
+
+
+  
+    void openSideBar(BuildContext context) {
+   BottomTop(widget:  Expanded(
+              child: TamayozDrawer()
+            )).openSideBar(context);
+}
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -38,7 +48,7 @@ class LandingPageState extends State<LandingPage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         key: _scaffoldKey,
-        drawer: TamayozDrawer(),
+        // drawer: TamayozDrawer(),
         body: Padding(
           padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
@@ -76,7 +86,7 @@ class LandingPageState extends State<LandingPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            _scaffoldKey.currentState?.openDrawer();
+                            openSideBar(context);
                           },
                           child: Image.asset(Assets.icons.menu2.path,width:30,height:30),
                         ),
@@ -189,10 +199,11 @@ class LandingPageState extends State<LandingPage> {
                           children: [
                             InkWell(
                               onTap: () {
+                                debugPrint(index.toString());
                                 if (index == 0) {
                                   const AddCarsScreenRoute().push(context);
                                 } else if (index == 1) {
-                                  const AddCarsScreenRoute().push(context);
+                                  const RequestCarsScreenRoute().push(context);
                                 } else {
                                   const CarServiceRoute().push(context);
                                 }

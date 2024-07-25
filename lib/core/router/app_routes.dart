@@ -6,6 +6,11 @@ import 'package:ai_tamayoz/feature/cars/presentation/screens/brand_screens.dart'
 import 'package:ai_tamayoz/feature/cars/presentation/screens/car_services.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/cars_details_screen.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/cars_screen.dart';
+import 'package:ai_tamayoz/feature/cars/presentation/screens/filter_sort/brand_screen.dart';
+import 'package:ai_tamayoz/feature/cars/presentation/screens/filter_sort/colors_screen.dart';
+import 'package:ai_tamayoz/feature/cars/presentation/screens/filter_sort/filter_screen.dart';
+import 'package:ai_tamayoz/feature/cars/presentation/screens/filter_sort/model_screen.dart';
+import 'package:ai_tamayoz/feature/cars/presentation/screens/request_car_screen.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/special_cars.dart';
 import 'package:ai_tamayoz/feature/cars/presentation/screens/whislist_screen.dart';
 import 'package:ai_tamayoz/feature/account/presentation/screens/account_password_change.dart';

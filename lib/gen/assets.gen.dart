@@ -21,6 +21,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/a-z.png
   AssetGenImage get aZ => const AssetGenImage('assets/icons/a-z.png');
 
+  /// File path: assets/icons/apps 1.png
+  AssetGenImage get apps1 => const AssetGenImage('assets/icons/apps 1.png');
+
   /// File path: assets/icons/book7.png
   AssetGenImage get book7 => const AssetGenImage('assets/icons/book7.png');
 
@@ -79,6 +82,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/power.png
   AssetGenImage get power => const AssetGenImage('assets/icons/power.png');
 
+  /// File path: assets/icons/rad1.png
+  AssetGenImage get rad1 => const AssetGenImage('assets/icons/rad1.png');
+
+  /// File path: assets/icons/rad2.png
+  AssetGenImage get rad2 => const AssetGenImage('assets/icons/rad2.png');
+
   /// File path: assets/icons/settings-sliders.png
   AssetGenImage get settingsSliders =>
       const AssetGenImage('assets/icons/settings-sliders.png');
@@ -103,6 +112,7 @@ class $AssetsIconsGen {
         a965,
         vector,
         aZ,
+        apps1,
         book7,
         car,
         check,
@@ -121,6 +131,8 @@ class $AssetsIconsGen {
         menu2,
         notify,
         power,
+        rad1,
+        rad2,
         settingsSliders,
         tele,
         toggleOn,

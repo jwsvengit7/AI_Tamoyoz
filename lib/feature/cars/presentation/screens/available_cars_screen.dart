@@ -1,5 +1,6 @@
 import 'package:ai_tamayoz/core/appbar/appbar.dart';
 import 'package:ai_tamayoz/core/colors/color.dart';
+import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/core/widget/text_field/search_input.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars_widget.dart';
@@ -18,6 +19,7 @@ class AvailableScreenState extends State<AvailableScreen> {
   bool status = false;
   final PageController _pageController = PageController();
   int _currentPage = 0;
+  int count = 0;
 
   @override
   void initState() {
@@ -54,7 +56,7 @@ class AvailableScreenState extends State<AvailableScreen> {
                   alignment: Alignment.center,
                   children: [
                     Container(
-                        height: 70,
+                        // height: 70,
                         margin: const EdgeInsets.only(bottom: 20, top: 5),
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
@@ -86,68 +88,68 @@ class AvailableScreenState extends State<AvailableScreen> {
                     ],
                 
                   ), 
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        top: 14.0, bottom: 10, right: 15, left: 15),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("${cars.length} results found"),
-                        SizedBox(
-                            width: 100,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        status = false;
-                                      });
-                                      debugPrint(status.toString());
-                                    },
-                                    child: Image.asset(
-                                        Assets.icons.settingsSliders.path)),
-                                InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        status = true;
-                                      });
-                                      debugPrint(status.toString());
-                                    },
-                                    child: Image.asset(Assets.icons.list.path))
-                              ],
-                            ))
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 14.0, bottom: 10, right: 10, left: 10),
-                      child: GridView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: cars.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: status ? 1 : 2,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 5,
-                          childAspectRatio: status ? 1.5 : 0.85,
-                        ),
-                        itemBuilder: (BuildContext context, int index) {
-                          final item = cars[index];
-                          return CarWidget(
-                              car: item,
-                              width: status
-                                  ? MediaQuery.of(context).size.width
-                                  : MediaQuery.of(context).size.width / 2,
-                              status: !status ? "available" : null);
-                        },
-                      ),
-                    ),
-                  ),
-                ],
+                    Padding(
+      padding: const EdgeInsets.only(top: 14.0, bottom: 10, right: 15, left: 15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text("${cars.length} results found"),
+          SizedBox(
+            width: 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                  onTap: () {
+                  const FilterScreenRoute().push(context);
+                    debugPrint(status.toString());
+                  },
+                  child: Image.asset(Assets.icons.settingsSliders.path),
+                ),
+InkWell(
+  onTap: () {
+    setState(() {
+      count = (count == 1) ? 0 : 1; // Toggle count between 0 and 1
+    });
+    debugPrint(count.toString()); // Print the value of count
+  },
+  child: count == 1
+      ? Image.asset(Assets.icons.list.path)
+      : Image.asset(Assets.icons.apps1.path),
+)
+
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+    SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 14.0, bottom: 10, right: 5, left: 5),
+        child: GridView.builder(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          itemCount: cars.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: count==1 ? 1 : 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 5,
+            childAspectRatio: count==1 ? 1.5 : 0.90,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            final item = cars[index];
+            return CarWidget(
+              car: item,
+              width: count==1 ? MediaQuery.of(context).size.width : MediaQuery.of(context).size.width / 2,
+              status: count!=1 ? "available" : null,
+            );
+          },
+        ),
+      ),
+    ),
+  ],
               ),
             )));
   }

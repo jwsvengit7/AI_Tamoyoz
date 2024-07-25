@@ -1,6 +1,7 @@
 import 'package:ai_tamayoz/core/appbar/appbar.dart';
 import 'package:ai_tamayoz/core/buttons/Tamayozbuttons.dart';
 import 'package:ai_tamayoz/core/colors/color.dart';
+import 'package:ai_tamayoz/core/widget/text_field/number_input.dart';
 import 'package:ai_tamayoz/core/widget/text_field/search_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -55,13 +56,14 @@ class AccountScreenState extends State<AccountScreen>{
                           ),
                           const SizedBox(height:10),
 
-                            TamayozSearchTextField(
-                            hintText: "Phone",
-                            controller: phone,
-                            type:"number"
                            
-                            // passwordField: true,
-                          ),
+                           PhoneNumberInput(
+                    controller: phone,
+                    type: "Phone",
+
+                    // passwordField: true,
+                  ),
+                          
                           const SizedBox(height:10),
                          
                           TamayozLoanButtons(

@@ -91,10 +91,34 @@ RouteBase get $carsRoute => GoRouteData.$route(
         GoRouteData.$route(
           path: 'special-car',
           factory: $SpecialCarsScreenRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'filter-screen',
+              factory: $FilterScreenRouteExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'color-screen',
+                  factory: $ColorScreenRouteExtension._fromState,
+                ),
+                GoRouteData.$route(
+                  path: 'brand-screen',
+                  factory: $BrandScreenRouteExtension._fromState,
+                ),
+                GoRouteData.$route(
+                  path: 'model-screen',
+                  factory: $ModelScreenRouteExtension._fromState,
+                ),
+              ],
+            ),
+          ],
         ),
         GoRouteData.$route(
           path: 'car-service',
           factory: $CarServiceRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'car-request',
+          factory: $RequestCarsScreenRouteExtension._fromState,
         ),
       ],
     );
@@ -242,12 +266,106 @@ extension $SpecialCarsScreenRouteExtension on SpecialCarsScreenRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
+extension $FilterScreenRouteExtension on FilterScreenRoute {
+  static FilterScreenRoute _fromState(GoRouterState state) =>
+      const FilterScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/special-car/filter-screen',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ColorScreenRouteExtension on ColorScreenRoute {
+  static ColorScreenRoute _fromState(GoRouterState state) => ColorScreenRoute(
+        text: state.uri.queryParameters['text']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/cars/special-car/filter-screen/color-screen',
+        queryParams: {
+          'text': text,
+        },
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $BrandScreenRouteExtension on BrandScreenRoute {
+  static BrandScreenRoute _fromState(GoRouterState state) =>
+      const BrandScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/special-car/filter-screen/brand-screen',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ModelScreenRouteExtension on ModelScreenRoute {
+  static ModelScreenRoute _fromState(GoRouterState state) =>
+      const ModelScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/special-car/filter-screen/model-screen',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
 extension $CarServiceRouteExtension on CarServiceRoute {
   static CarServiceRoute _fromState(GoRouterState state) =>
       const CarServiceRoute();
 
   String get location => GoRouteData.$location(
         '/cars/car-service',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $RequestCarsScreenRouteExtension on RequestCarsScreenRoute {
+  static RequestCarsScreenRoute _fromState(GoRouterState state) =>
+      const RequestCarsScreenRoute();
+
+  String get location => GoRouteData.$location(
+        '/cars/car-request',
       );
 
   void go(BuildContext context) => context.go(location);

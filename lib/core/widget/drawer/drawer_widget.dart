@@ -12,15 +12,15 @@ class TamayozDrawer extends StatelessWidget {
     double drawerWidth =
 
   
-        MediaQuery.of(context).size.width * 0.95; 
+        MediaQuery.of(context).size.width ; 
 
     return SizedBox(
       width: drawerWidth,
-      child: Drawer(
+   
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-          const SizedBox(height:50),
+          const SizedBox(height:10),
 
             Padding(
                  padding: const EdgeInsets.only(left:12,right:12),
@@ -232,7 +232,7 @@ class TamayozDrawer extends StatelessWidget {
 
 
                Padding(
-                 padding:  EdgeInsets.only(left:12,right:12,top:20),
+                 padding:  EdgeInsets.only(left:12,right:12,top:10),
                  child: ListTile(
                   title: Text("Version 1.0.0\n2023 Al Tamayoz\nPowered by Code Zone",style:text),
                  ),
@@ -243,7 +243,7 @@ class TamayozDrawer extends StatelessWidget {
           
           ],
         ),
-      ),
+      
     );
   }
 }

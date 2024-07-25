@@ -54,13 +54,7 @@ class CarsScreenState extends State<CarsScreen>{
                    
                               const SizedBox(height:10),
                          
-                          TamayozLoanButtons(
-                                  context: context,
-                                  onTap: () =>_handleSubmission(context),
-                                  text: "Add Car",
-                                  textColor: TamayozLoanColors.white,
-                                  color:  TamayozLoanColors.black1 )
-                              .normal(),
+                       
                    
                     ],
                   ),

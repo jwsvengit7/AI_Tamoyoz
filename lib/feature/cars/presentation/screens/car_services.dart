@@ -68,9 +68,7 @@ class CarServiceScreenState extends State<CarServiceScreen>{
                               },
                             ),
                           ),
-                          ))
-                 
-                      
+                          ))          
                       ],
                   
                     ),
@@ -82,7 +80,6 @@ class CarServiceScreenState extends State<CarServiceScreen>{
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text("${carsService.length} results found"),
-                      
                       ],
                     ),
                   ),
@@ -95,8 +92,7 @@ class CarServiceScreenState extends State<CarServiceScreen>{
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: 6,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 1,
                             crossAxisSpacing: 3,
                             mainAxisSpacing: 2,

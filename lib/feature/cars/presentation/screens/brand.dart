@@ -1,5 +1,5 @@
 import 'package:ai_tamayoz/core/appbar/appbar.dart';
-import 'package:ai_tamayoz/core/colors/color.dart';
+import 'package:ai_tamayoz/core/router/app_routes.dart';
 import 'package:ai_tamayoz/core/widget/text_field/search_input.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars.dart';
 import 'package:ai_tamayoz/feature/landing_page/presentation/widget/cars_widget.dart';
@@ -11,23 +11,21 @@ import 'package:flutter/services.dart';
 
 class BrandScreen extends StatefulWidget {
   final CarType brand;
-  const BrandScreen({super.key,required this.brand});
+  const BrandScreen({super.key, required this.brand});
   @override
   BrandScreenState createState() => BrandScreenState();
 }
 
 class BrandScreenState extends State<BrandScreen> {
   bool status = false;
-  final PageController _pageController = PageController();
-  int _currentPage = 0;
+  int count = 0;
 
   @override
   void initState() {
     super.initState();
-  setState(() {
-    status=false;
-    _currentPage=0;
-  }); 
+    setState(() {
+      status = false;
+    });
   }
 
   @override
@@ -39,61 +37,45 @@ class BrandScreenState extends State<BrandScreen> {
           statusBarColor: Colors.transparent,
         ),
         child: Scaffold(
-                    backgroundColor: Colors.white,
-
-            appBar:  TamayozLoanAppBar(
+            backgroundColor: Colors.white,
+            appBar: TamayozLoanAppBar(
               title: widget.brand.name,
               shouldPop: true,
             ),
             body: SingleChildScrollView(
               child: Column(
                 children: [
-               const  Padding(
-                   padding:  EdgeInsets.only(left:13.0,right:13.0,top:10,bottom:5),
-                   child:  SearchBarInput(),
-                 ),
+                  const Padding(
+                    padding: EdgeInsets.only(
+                        left: 13.0, right: 13.0, top: 10, bottom: 5),
+                    child: SearchBarInput(),
+                  ),
                   Stack(
                     alignment: Alignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 80,
-                          child: PageView.builder(
-                            controller: _pageController,
-
-                            itemCount: (cars.length / 3)
-                                .ceil(), // Divide data length by 3
-                            onPageChanged: (int page) {
-                              setState(() {
-                                _currentPage = page;
-                              });
-                            },
-                            itemBuilder: (BuildContext context, int pageIndex) {
-                              int startIndex = pageIndex * 3;
-                              int endIndex = startIndex + 3;
-                              List<Widget> items = [];
-                              for (int i = startIndex;
-                                  i < endIndex && i < cars.length;
-                                  i++) {
-                                items.add(
-                                     CarViewProduct(i:i) );
-                              }
-                              while (items.length < 3) {
-                                items.add(Expanded(child: Container()));
-                              }
-
-                              return Row(
-                                children: items,
-                              );
-                            },
-                          ),
-                        ),
-                      ),
+                      Container(
+                          // height: 70,
+                          margin: const EdgeInsets.only(bottom: 20, top: 5),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: List.generate(
+                                cars.length,
+                                (index) {    
+                                return InkWell(
+                                      child: Padding(
+                                          padding: const EdgeInsets.all(1.0),
+                                          child: SizedBox(
+                                              width: 110,
+                                              height: 60,
+                                              child:
+                                                  CarViewProduct(i: index))));
+                                },
+                              ),
+                            ),
+                          ))
                     ],
                   ),
-                  const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.only(
                         top: 14.0, bottom: 10, right: 15, left: 15),
@@ -102,29 +84,32 @@ class BrandScreenState extends State<BrandScreen> {
                       children: [
                         Text("${cars.length} results found"),
                         SizedBox(
-                            width: 100,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        status = false;
-                                      });
-                                      debugPrint(status.toString());
-                                    },
-                                    child: Image.asset(
-                                        Assets.icons.settingsSliders.path)),
-                                InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        status = true;
-                                      });
-                                      debugPrint(status.toString());
-                                    },
-                                    child: Image.asset(Assets.icons.list.path))
-                              ],
-                            ))
+                          width: 100,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  const FilterScreenRoute().push(context);
+                                  debugPrint(status.toString());
+                                },
+                                child: Image.asset(
+                                    Assets.icons.settingsSliders.path),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    count = (count == 1) ? 0 : 1;
+                                  });
+                                  debugPrint(count.toString());
+                                },
+                                child: count == 1
+                                    ? Image.asset(Assets.icons.list.path)
+                                    : Image.asset(Assets.icons.apps1.path),
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -135,22 +120,23 @@ class BrandScreenState extends State<BrandScreen> {
                           top: 14.0, bottom: 10, right: 5, left: 5),
                       child: GridView.builder(
                         shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
+                        physics: NeverScrollableScrollPhysics(),
                         itemCount: cars.length,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: status ? 1 : 2,
+                          crossAxisCount: count == 1 ? 1 : 2,
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 5,
-                          childAspectRatio: status ? 1.5 : 0.70,
+                          childAspectRatio: count == 1 ? 1.5 : 0.90,
                         ),
                         itemBuilder: (BuildContext context, int index) {
                           final item = cars[index];
                           return CarWidget(
-                              car: item,
-                              width: status
-                                  ? MediaQuery.of(context).size.width
-                                  : MediaQuery.of(context).size.width / 2,
-                              status: !status ? "available" : null);
+                            car: item,
+                            width: count == 1
+                                ? MediaQuery.of(context).size.width
+                                : MediaQuery.of(context).size.width / 2,
+                            status: count != 1 ? "available" : null,
+                          );
                         },
                       ),
                     ),

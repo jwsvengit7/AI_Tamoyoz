@@ -50,11 +50,11 @@ bool _isChecked = false;
   padding: EdgeInsets.only(
                       left: 13.0, right: 13.0, top: 10, bottom: 5),                  child: Container(
                     alignment: Alignment.centerLeft,
-                    child: Text("Choose desired car model",style: TextStyle(fontSize: 13),textAlign: TextAlign.left,)),
+                    child: Text("Choose desired car model",style: TextStyle(fontSize: 14),textAlign: TextAlign.left,)),
                 ), 
 
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: filters.map((value) {
                       return FilterWidget(value: value,child: Center(

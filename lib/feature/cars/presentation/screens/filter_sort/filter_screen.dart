@@ -368,11 +368,11 @@ List<String> filters = ["Brand","Model","Exterior Color","Internal Color"];
                             ),
                             InkWell(
                             
-                              child: Container(
+                              child:  Container(
                                 alignment: Alignment.center,
                                 width: MediaQuery.of(context).size.width / 2.2,
                                 height: 50,
-                                child: const Text(
+                                child:  Text(
                                   "Apply",
                                   style: TextStyle(color: TamayozLoanColors.white),
                                 ),
@@ -387,7 +387,9 @@ List<String> filters = ["Brand","Model","Exterior Color","Internal Color"];
                         ),
                       ),
                      
-                )
+                ),
+
+               const SizedBox(height:20)
              
               ]),
             ))));

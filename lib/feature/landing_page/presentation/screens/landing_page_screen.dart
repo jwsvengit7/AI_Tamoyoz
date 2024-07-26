@@ -290,7 +290,7 @@ class LandingPageState extends State<LandingPage> {
                   width: MediaQuery.of(context).size.width,
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(bottom: 10, right: 5, left: 5),
+                        const EdgeInsets.only(right: 5, left: 5),
                     child: GridView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -299,7 +299,7 @@ class LandingPageState extends State<LandingPage> {
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 4,
                         crossAxisSpacing: 10,
-                        mainAxisSpacing: 20,
+                        mainAxisSpacing: 10,
                         childAspectRatio: 0.90,
                       ),
                       itemBuilder: (BuildContext context, int index) {
@@ -341,7 +341,6 @@ class LandingPageState extends State<LandingPage> {
                         child: const Text("View All", style: redFontText)),
                   ],
                 ),
-                                SizedBox(height: 10,),
 
                 Stack(
                   alignment: Alignment.center,

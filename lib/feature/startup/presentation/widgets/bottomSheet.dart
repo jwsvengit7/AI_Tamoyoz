@@ -12,7 +12,7 @@ class BottomSheets extends StatelessWidget {
       Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          height: height,
+          // height: height,
           width: double.infinity,
           decoration: const BoxDecoration(
             color: TamayozLoanColors.white,

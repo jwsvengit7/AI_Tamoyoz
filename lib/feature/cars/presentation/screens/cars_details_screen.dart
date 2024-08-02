@@ -251,7 +251,7 @@ class CarsDetailsScreenState extends State<CarsDetailsScreen> with SingleTickerP
                                 alignment: Alignment.center,
                                 width: MediaQuery.of(context).size.width / 1.3,
                                 height: 50,
-                                child: Text(
+                                child: const Text(
                                   "Bid Now",
                                   style: TextStyle(color: TamayozLoanColors.white),
                                 ),

@@ -271,21 +271,26 @@ class LandingPageState extends State<LandingPage> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      "Popular Brands",
-                      style: TextStyle(fontSize: 17),
-                    ),
-                    InkWell(
-                        onTap: () {
-                          const BrandCarScreenRoute().push(context);
-                        },
-                        child: const Text("View All", style: redFontText)),
-                  ],
-                ),
+                const SizedBox(height: 10),
+              
+
+                                Padding(padding: 
+                        const EdgeInsets.only(right: 5, left: 5),
+                                  child: Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      const Text(
+                                                        "Popular Brands",
+                                                        style: TextStyle(fontSize: 17),
+                                                      ),
+                                                      InkWell(
+                                                          onTap: () {
+                                                            const BrandCarScreenRoute().push(context);
+                                                          },
+                                                          child: const Text("View All", style: redFontText)),
+                                                    ],
+                                                  ),
+                                ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Padding(
@@ -312,7 +317,7 @@ class LandingPageState extends State<LandingPage> {
                                 color: const Color.fromRGBO(0, 0, 0, 0.11),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              height: 100,
+                              height: 90,
                               width: MediaQuery.of(context).size.width,
                               child: Image.asset(
                                 item.icon,
@@ -326,20 +331,23 @@ class LandingPageState extends State<LandingPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      "Special Cars",
-                      style: TextStyle(fontSize: 17),
-                    ),
-                    InkWell(
-                        onTap: () {
-                          const SpecialCarsScreenRoute().push(context);
-                        },
-                        child: const Text("View All", style: redFontText)),
-                  ],
+                const SizedBox(height: 10),
+                Padding(
+                  padding:   const EdgeInsets.only(right: 5, left: 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Special Cars",
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      InkWell(
+                          onTap: () {
+                            const SpecialCarsScreenRoute().push(context);
+                          },
+                          child: const Text("View All", style: redFontText)),
+                    ],
+                  ),
                 ),
 
                 Stack(
@@ -361,7 +369,7 @@ class LandingPageState extends State<LandingPage> {
                                   padding: const EdgeInsets.all(5.0),
                                   child: SizedBox(
                                       width: 250,
-                                      height: 250,
+                                      height: 240,
                                       child: CarWidget(
                                         car: value,
                                         width:

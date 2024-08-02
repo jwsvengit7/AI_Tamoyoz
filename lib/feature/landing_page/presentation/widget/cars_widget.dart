@@ -45,7 +45,7 @@ class CarWidget extends StatelessWidget {
                   child: Image.asset(
                     car.icon,
                     width: width,
-                    height: status == "available" ? 150.h : 190.h,
+                    height: status == "available" ? 150.h : 180.h,
                     fit: BoxFit.fill,
                   ),
                 ),

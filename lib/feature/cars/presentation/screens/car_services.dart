@@ -63,8 +63,6 @@ class CarServiceScreenState extends State<CarServiceScreen>{
                                     )
                                     )
                                     );
-                 
-                            
                               },
                             ),
                           ),

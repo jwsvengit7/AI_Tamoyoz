@@ -354,76 +354,7 @@ class AddCarsScreenState extends State<AddCarsScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Container(
-                //       width: 170,
-                //       height: 70,
-                //       decoration: BoxDecoration(
-                //           border: Border.all(
-                //               width: 1.0, color: TamayozLoanColors.grey8)),
-                //       child: Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //         children: [
-                //           for (Color color in [
-                //             Colors.red,
-                //             Colors.black,
-                //             Colors.grey,
-                //             TamayozLoanColors.grey8,
-                //           ])
-                //             InkWell(
-                //               child: Container(
-                //                 width: 30,
-                //                 height: 30,
-                //                 margin: EdgeInsets.all(5),
-                //                 decoration: BoxDecoration(
-                //                     color: color,
-                //                     borderRadius: BorderRadius.circular(100),
-                //                     border: Border.all(
-                //                         color: TamayozLoanColors.grey8,
-                //                         width: 1)),
-                //               ),
-                //             ),
-                //         ],
-                //       ),
-                //     ),
-                //     Container(
-                //       width: 170,
-                //       height: 70,
-                //       decoration: BoxDecoration(
-                //           border: Border.all(
-                //               width: 1.0, color: TamayozLoanColors.grey8)),
-                //       child: Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //         children: [
-                //           for (Color color in [
-                //             Colors.red,
-                //             Colors.white,
-                //             Colors.lightBlue,
-                //             Colors.yellow,
-                //           ])
-                //             InkWell(
-                //               onTap: () {},
-                //               child: Container(
-                //                 width: 30,
-                //                 height: 30,
-                //                 margin: EdgeInsets.all(5),
-                //                 decoration: BoxDecoration(
-                //                     color: color,
-                //                     borderRadius: BorderRadius.circular(100),
-                //                     border: Border.all(
-                //                         color: TamayozLoanColors.grey8,
-                //                         width: 1)),
-                //               ),
-                //             ),
-                //         ],
-                //       ),
-                //     ),
-                //   ],
-                // ),
-                // const SizedBox(height: 10),
-                TamayozLoanButtons(
+              TamayozLoanButtons(
                         context: context,
                         onTap: () {
                          openSideBar(context);

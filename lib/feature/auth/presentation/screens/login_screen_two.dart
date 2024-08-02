@@ -61,142 +61,140 @@ class OnboardingScreenTwoState extends State<OnboardingScreenTwo> {
           statusBarColor: Colors.transparent,
         ),
         child: Scaffold(
-            body: SingleChildScrollView(
-          child: OnBoardingBackground(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                      Assets.images.logo.path,
-                      width: 500.w,
-                      height: 200.h,
+            body: OnBoardingBackground(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        Assets.images.logo.path,
+                        width: 500.w,
+                        height: 200.h,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Welcome Back",
-                                style: font.titleStyle,
-                              ),
-                              Text("\nLogin to your Account", style: font.titleStyle2)
-                            ],
-                          )),
-                    ),
-               
-               const SizedBox(height:15),
-
-                BottomSheets(
-                  height: 440.h,
-                  child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
-                           Text(
-                            'Enter Your Crendentials',
-style: font.textLabelForm,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                           TamayozSearchTextField(
-                              hintText: "Email/Mobile Number",
-                               type: "email",
-
-                              controller:email),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                           TamayozSearchTextField(
-                            hintText: "Password",
-                            controller: password,
-                            type:"password",
-                            onChanged: (data){
-                                setState(() {
-        colorStatus =true;
-      });
-                            },
-                            // passwordField: true,
-                          ),
-                          const SizedBox(height:10),
-                          Container(
-                              alignment: Alignment.topRight,
-                              child: Padding(
-                                padding:const EdgeInsets.only(left: 8.0, right: 8.0),
-                                child: InkWell(
-                                  onTap: () {
-                                    const ForgetPasswordRoute().push(context);
-                                  },
-                                  child: const Text(
-                                    "Forget Password",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(19, 201, 226, 1),
-                                      fontSize: 16,
-
-                                    ),
-                                  ),
-                                ),
-                              )),
-                            
-
-                          Padding(
-                            padding: const EdgeInsets.only(top:12.0,bottom: 12.0),
-                            child: TamayozLoanButtons(
-                                    context: context,
-                                    onTap: () =>_handleSubmission(context),
-                                    text: "Login",
-                                    textColor: TamayozLoanColors.white,
-                                    color: colorStatus? TamayozLoanColors.black1 : TamayozLoanColors.grey4)
-                                .normal(),
-                          ),
-                            
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                  // const SizedBox(height: 10),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text("Dont have an Account?"),
-                                const SizedBox(
-                                  width: 10,
+                                Text(
+                                  "Welcome Back",
+                                  style: font.titleStyle,
                                 ),
-                                InkWell(
-                                   onTap:  () {
-        const OnboardingScreenSignupRoute().push(context);
-      },
-  
-                                  child: const Text(
-                                    "Register Here",
-                                    style: TextStyle(
-                                      color: Color.fromRGBO(19, 201, 226, 1),
-                                      fontSize: 16,
-
+                                Text("\nLogin to your Account", style: font.titleStyle2)
+                              ],
+                            )),
+                      ),
+                 
+                 const SizedBox(height:15),
+            
+                  BottomSheets(
+                    height: 440.h,
+                    child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 20,
+                            ),
+                             Text(
+                              'Enter Your Crendentials',
+            style: font.textLabelForm,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                             TamayozSearchTextField(
+                                hintText: "Email/Mobile Number",
+                                 type: "email",
+            
+                                controller:email),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                             TamayozSearchTextField(
+                              hintText: "Password",
+                              controller: password,
+                              type:"password",
+                              onChanged: (data){
+                                  setState(() {
+                    colorStatus =true;
+                  });
+                              },
+                              // passwordField: true,
+                            ),
+                            const SizedBox(height:10),
+                            Container(
+                                alignment: Alignment.topRight,
+                                child: Padding(
+                                  padding:const EdgeInsets.only(left: 8.0, right: 8.0),
+                                  child: InkWell(
+                                    onTap: () {
+                                      const ForgetPasswordRoute().push(context);
+                                    },
+                                    child: const Text(
+                                      "Forget Password",
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(19, 201, 226, 1),
+                                        fontSize: 16,
+            
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ])
-                        ]),
+                                )),
+                              
+            
+                            Padding(
+                              padding: const EdgeInsets.only(top:12.0,bottom: 12.0),
+                              child: TamayozLoanButtons(
+                                      context: context,
+                                      onTap: () =>_handleSubmission(context),
+                                      text: "Login",
+                                      textColor: TamayozLoanColors.white,
+                                      color: colorStatus? TamayozLoanColors.black1 : TamayozLoanColors.grey4)
+                                  .normal(),
+                            ),
+                              
+                            Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Text("Dont have an Account?"),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  InkWell(
+                                     onTap:  () {
+                    const OnboardingScreenSignupRoute().push(context);
+                  },
+              
+                                    child: const Text(
+                                      "Register Here",
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(19, 201, 226, 1),
+                                        fontSize: 16,
+            
+                                      ),
+                                    ),
+                                  ),
+                                ])
+                          ]),
+                    ),
+                  )
+                  ],
                   ),
-                )
                 ],
-                ),
-              ],
-            ),
-          ),
-        )),
+              ),
+            )),
       ),);
       }
     );

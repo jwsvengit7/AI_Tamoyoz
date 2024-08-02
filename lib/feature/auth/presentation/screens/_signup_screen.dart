@@ -37,122 +37,121 @@ class OnboardingScreenSignupState extends State<OnboardingScreenSignup> {
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
-          body: SingleChildScrollView(
-        child: OnBoardingBackground(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    Assets.images.logo.path,
-                    width: 500.w,
-                    height: 200.h,
+          body: OnBoardingBackground(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      Assets.images.logo.path,
+                      width: 500.w,
+                      height: 200.h,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 100,
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: 100,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Join Us!",
+                            style: font.titleStyle,
+                          ),
+                          Text("\nCreate an Account", style: font.titleStyle2)
+                        ],
+                      )),
+                ),
+                BottomSheets(
+                  height: 600.0.h,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top:15.0,bottom: 15,left:15,right:15),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Join Us!",
-                          style: font.titleStyle,
-                        ),
-                        Text("\nCreate an Account", style: font.titleStyle2)
-                      ],
-                    )),
-              ),
-              BottomSheets(
-                height: 600.0.h,
-                child: Padding(
-                  padding: const EdgeInsets.only(top:15.0,bottom: 15,left:15,right:15),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 30,
-                        ),
-                      const  Text(
-                          'Provide Following Details',
-                          style: TextStyle(color: Colors.black, fontSize: 18),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                     TamayozSearchTextField(
-                          controller: fullName,
-                                                    type: "text",
-
-                          hintText: "Full Name"),
-                       const SizedBox(
-                          height: 12,
-                        ),
-                      TamayozSearchTextField(
-                          controller: email,
-                          hintText: "Email",
-                          type: "email",
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 30,
                           ),
-                          SizedBox(height:12),
-
-                           PhoneNumberInput(
-                    controller: mobileNumber,
-                    type: "Mobile Number",
-                 
-
-                    // passwordField: true,
+                        const  Text(
+                            'Provide Following Details',
+                            style: TextStyle(color: Colors.black, fontSize: 18),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                       TamayozSearchTextField(
+                            controller: fullName,
+                                                      type: "text",
+          
+                            hintText: "Full Name"),
+                         const SizedBox(
+                            height: 12,
+                          ),
+                        TamayozSearchTextField(
+                            controller: email,
+                            hintText: "Email",
+                            type: "email",
+                            ),
+                            SizedBox(height:12),
+          
+                             PhoneNumberInput(
+                      controller: mobileNumber,
+                      type: "Mobile Number",
+                   
+          
+                      // passwordField: true,
+                    ),
+                                                      SizedBox(height:12),
+          
+                                TamayozSearchTextField(
+                            controller: password,
+                            hintText: "Password",
+                            type:"password",
+                            
+          
+                            ),
+                            SizedBox(height:12),
+                         
+                          Padding(
+                            padding: const EdgeInsets.only(top:12.0,bottom: 5.0),
+                            child: TamayozLoanButtons(
+                                    context: context,
+                                    onTap: () =>
+                                        Navigator.of(context).push(_createRoute()),
+                                    text: "Register",
+                                    textColor: TamayozLoanColors.white,
+                                    color: TamayozLoanColors.black1)
+                                .normal(),
+                          ),
+                          SizedBox(height:10),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                               children:[
+                               const Text("Already have an Account?"),
+                              const  SizedBox(width: 10,),
+                                InkWell(
+                                  onTap: () {
+                                  const  OnboardingScreenLoginRoute().push(context);
+                                  },
+                                  child:const Text("Log in Here",  style: TextStyle(
+                                      color: Color.fromRGBO(19, 201, 226, 1),
+                                      fontSize: 16,
+                                    ),),
+                                ),
+                               ]
+                              )
+                        ]),
                   ),
-                                                    SizedBox(height:12),
-
-                              TamayozSearchTextField(
-                          controller: password,
-                          hintText: "Password",
-                          type:"password",
-                          
-
-                          ),
-                          SizedBox(height:12),
-                       
-                        Padding(
-                          padding: const EdgeInsets.only(top:12.0,bottom: 12.0),
-                          child: TamayozLoanButtons(
-                                  context: context,
-                                  onTap: () =>
-                                      Navigator.of(context).push(_createRoute()),
-                                  text: "Register",
-                                  textColor: TamayozLoanColors.white,
-                                  color: TamayozLoanColors.black1)
-                              .normal(),
-                        ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                             children:[
-                             const Text("Already have an Account?"),
-                            const  SizedBox(width: 10,),
-                              InkWell(
-                                onTap: () {
-                                const  OnboardingScreenLoginRoute().push(context);
-                                },
-                                child:const Text("Log in Here",  style: TextStyle(
-                                    color: Color.fromRGBO(19, 201, 226, 1),
-                                    fontSize: 16,
-                                  ),),
-                              ),
-                             ]
-                            )
-                      ]),
-                ),
-              )
-            ],
-          ),
-        ),
-      )),
+                )
+              ],
+            ),
+          )),
     );
   }
 
